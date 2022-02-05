@@ -1,6 +1,5 @@
 // import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import Sidebar from '../../components/Sidebar'
 import { Client } from '@notionhq/client'
@@ -8,9 +7,10 @@ import { SidebarContext, fetchSidebarOptions } from '../../globalState/SidebarCo
 import { useContext, useEffect } from 'react'
 
 /*
-  TODO: fetch all the data from the writing page in here
+  TODO: fetch all the data from the writing page here
     * all blocks
     * then, get the data inside the database
+    * look at the separation of responsibilities in https://github.com/vercel/next-learn/blob/master/basics/demo/pages/posts/%5Bid%5D.js
 */
 export const getStaticProps = async () => {
   const notion = new Client({ auth: process.env.NOTION_KEY })

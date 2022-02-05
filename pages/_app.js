@@ -1,11 +1,11 @@
 import '../styles/globals.css'
 // import type { AppProps } from 'next/app'
-import { ReferenceSidebarContextProvider } from '../globalState/SidebarContext'
+import { SidebarContextProvider } from '../globalState/SidebarContext'
 
 const PortfolioSite = ({ Component, pageProps }) => (
-  <ReferenceSidebarContextProvider>
+  <SidebarContextProvider>
     <Component {...pageProps} />
-  </ReferenceSidebarContextProvider>
+  </SidebarContextProvider>
 )
 
 export default PortfolioSite
