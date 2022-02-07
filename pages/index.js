@@ -3,8 +3,14 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Sidebar from '../components/Sidebar'
 import { Client } from '@notionhq/client'
-import { SidebarContext, fetchSidebarOptions } from '../globalState/SidebarContext'
+import { SidebarContext } from '../global-state/SidebarContext'
+import { fetchSidebarOptions } from '../notion-api/sidebar'
 import { useContext, useEffect } from 'react'
+
+/*
+  TODO: look at how to use localStorage options with next
+    * would be nice to cache dark/light mode
+*/
 
 /*
   TODO: split logic into separate functions:
@@ -21,7 +27,7 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ sidebarOptions }) => {
-  console.log('o', sidebarOptions)
+  // console.log('o', sidebarOptions)
   const { setSidebarOptions } = useContext(SidebarContext)
 
   useEffect(() => {

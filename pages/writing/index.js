@@ -1,9 +1,10 @@
-// import type { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import Sidebar from '../../components/Sidebar'
 import { Client } from '@notionhq/client'
-import { SidebarContext, fetchSidebarOptions } from '../../globalState/SidebarContext'
+import { SidebarContext } from '../../global-state/SidebarContext'
+import { fetchSidebarOptions } from '../../notion-api/sidebar'
+import { fetchWritingPageData } from '../../notion-api/writing'
 import { useContext, useEffect } from 'react'
 
 /*
@@ -16,16 +17,23 @@ export const getStaticProps = async () => {
   const notion = new Client({ auth: process.env.NOTION_KEY })
 
   const sidebarOptions = await fetchSidebarOptions(notion, process.env.PORTFOLIO_HUB_PAGE_ID)
+  const writingPageData = await fetchWritingPageData(notion, process.env.WRITING_PAGE_ID)
 
   return {
     props: {
-      sidebarOptions
+      sidebarOptions,
+      writingPageData
     }
   }
 }
 
-const Writing = ({ sidebarOptions }) => {
+const Writing = ({
+  sidebarOptions,
+  writingPageData
+}) => {
   const { setSidebarOptions } = useContext(SidebarContext)
+
+  console.log('w', writingPageData)
 
   useEffect(() => {
     setSidebarOptions(sidebarOptions)
