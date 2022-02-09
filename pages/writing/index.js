@@ -4,20 +4,23 @@ import Sidebar from '../../components/Sidebar'
 import { Client } from '@notionhq/client'
 import { SidebarContext } from '../../global-state/SidebarContext'
 import { fetchSidebarOptions } from '../../notion-api/sidebar'
-import { fetchWritingPageData } from '../../notion-api/writing'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
-/*
-  TODO: fetch all the data from the writing page here
-    * all blocks
-    * then, get the data inside the database
-    * look at the separation of responsibilities in https://github.com/vercel/next-learn/blob/master/basics/demo/pages/posts/%5Bid%5D.js
-*/
+import { NotionRenderer } from 'react-notion-x'
+import { NotionAPI } from 'notion-client'
+
 export const getStaticProps = async () => {
+  // TODO: write a function to consolidate notionApi creation
   const notion = new Client({ auth: process.env.NOTION_KEY })
+  const notionApi = new NotionAPI({
+    authToken: process.env.APP_TOKEN,
+    activeUser: process.env.NOTION_USER_ID
+  })
 
   const sidebarOptions = await fetchSidebarOptions(notion, process.env.PORTFOLIO_HUB_PAGE_ID)
-  const writingPageData = await fetchWritingPageData(notion, process.env.WRITING_PAGE_ID)
+
+  // TODO: figure out why the database isn't rendered on the page
+  const writingPageData = await notionApi.getPage(process.env.WRITING_PAGE_ID)
 
   return {
     props: {
@@ -32,13 +35,18 @@ const Writing = ({
   writingPageData
 }) => {
   const { setSidebarOptions } = useContext(SidebarContext)
-
-  console.log('w', writingPageData)
+  const [writingPage, setWritingPage] = useState(undefined)
 
   useEffect(() => {
     setSidebarOptions(sidebarOptions)
   }, [sidebarOptions, setSidebarOptions])
 
+  useEffect(() => {
+    console.log('w', writingPageData)
+    setWritingPage(writingPageData)
+  }, [writingPageData])
+
+  // ! TODO: render tables (if they exist) with collections! -- look at documentation for react-notion-x
   return (
     <div className={styles.container}>
       <Head>
@@ -48,6 +56,12 @@ const Writing = ({
       </Head>
       <h1>Hello world! this is the writing page of my portfolio site!</h1>
       <Sidebar />
+      {writingPage && 
+        <NotionRenderer
+          recordMap={writingPage}
+          fullPage={true}
+        />
+      }
     </div>
   )
 }

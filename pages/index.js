@@ -13,10 +13,6 @@ import { useContext, useEffect } from 'react'
 */
 
 /*
-  TODO: split logic into separate functions:
-    * fetch all the sidebar options in one function -> this will require multiple API calls
-    * fetch the homepage data to render it below!
-  
   TODO: convert this component to TypeScript once I feel comfortable with types + fetching + rendering
 */
 export const getStaticProps = async () => {
@@ -27,7 +23,6 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ sidebarOptions }) => {
-  // console.log('o', sidebarOptions)
   const { setSidebarOptions } = useContext(SidebarContext)
 
   useEffect(() => {
