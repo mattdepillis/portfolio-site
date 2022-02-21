@@ -4,8 +4,10 @@
  * @param {string} databaseId the id of the database to query
  * @returns {object[]}
 */ 
-export const getAllEntryIds = async (client, databaseId) => await client.databases
+export const getAllPageSlugs = async (client, databaseId) => await client.databases
   .query({ database_id: databaseId })
-  .then(data => data.results.map(result => result.id))
-  .then(paths => paths.map(path => 
-    ({ params: { id: path } })))
+  .then(data => data.results.map(result => ({
+      params: {
+        slug: result.properties.Slug['rich_text'][0].text.content
+      }
+    })))

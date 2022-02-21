@@ -3,12 +3,12 @@ import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-tomorrow.css'
 import 'rc-dropdown/assets/index.css'
 import 'katex/dist/katex.min.css'
-import { SidebarContextProvider } from '../global-state/SidebarContext'
+import { AppContextProvider } from '../global-state/AppContext'
 
 const PortfolioSite = ({ Component, pageProps }) => (
-  <SidebarContextProvider>
+  <AppContextProvider>
     <Component {...pageProps} />
-  </SidebarContextProvider>
+  </AppContextProvider>
 )
 
 export default PortfolioSite

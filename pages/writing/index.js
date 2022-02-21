@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, Fragment } from 'react'
 
 import Page from '../../components/Page'
-import { SidebarContext } from '../../global-state/SidebarContext'
+import { AppContext } from '../../global-state/AppContext'
 import { fetchSidebarOptions } from '../../notion-api/sidebar'
 import { setupNotionAPIClients } from '../../notion-api/utils'
 
@@ -25,7 +25,7 @@ const Writing = ({
   sidebarOptions,
   writingPageData
 }) => {
-  const { setSidebarOptions } = useContext(SidebarContext)
+  const { setSidebarOptions } = useContext(AppContext)
   const [writingPage, setWritingPage] = useState(undefined)
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Sidebar from '../components/Sidebar'
 import { Client } from '@notionhq/client'
-import { SidebarContext } from '../global-state/SidebarContext'
+import { AppContext } from '../global-state/AppContext'
 import { fetchSidebarOptions } from '../notion-api/sidebar'
 import { useContext, useEffect } from 'react'
 
@@ -16,14 +16,14 @@ import { useContext, useEffect } from 'react'
   TODO: convert this component to TypeScript once I feel comfortable with types + fetching + rendering
 */
 export const getStaticProps = async () => {
-  const notion = new Client({ auth: process.env.NOTION_KEY })
-  const sidebarOptions = await fetchSidebarOptions(notion, process.env.PORTFOLIO_HUB_PAGE_ID)
+  const { officialNotionClient, notionClient } = setupNotionAPIClients()
+  const sidebarOptions = await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
 
   return { props: { sidebarOptions } }
 }
 
 const Home = ({ sidebarOptions }) => {
-  const { setSidebarOptions } = useContext(SidebarContext)
+  const { setSidebarOptions } = useContext(AppContext)
 
   useEffect(() => {
     setSidebarOptions(sidebarOptions)
