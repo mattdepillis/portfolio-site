@@ -6,6 +6,7 @@ import { Client } from '@notionhq/client'
 import { AppContext } from '../global-state/AppContext'
 import { fetchSidebarOptions } from '../notion-api/sidebar'
 import { useContext, useEffect } from 'react'
+import { setupNotionAPIClients } from '../notion-api/utils'
 
 /*
   TODO: look at how to use localStorage options with next

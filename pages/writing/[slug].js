@@ -1,32 +1,39 @@
-import Page from '../../components/Page'
+import { Fragment, useEffect, useState } from 'react'
 import { setupNotionAPIClients } from '../../notion-api/utils'
-import { getAllPageSlugs } from '../../notion-api/databases'
-import { AppContext } from '../../global-state/AppContext'
-import { Fragment, useContext, useEffect, useState } from 'react'
+import { resolveNotionPage } from '../../lib/resolve-notion-page'
 
-const { officialNotionClient, notionClient } = setupNotionAPIClients()
+import Page from '../../components/Page'
+import Custom404 from '../404'
 
-/*
-  * getAllEntryIds should also get the slug for each post
-  * the slug should be the id of the post and the page Id should be the "notionPageId" or something
-*/
-export const getStaticPaths = async () => {
-  const paths =
-    await getAllPageSlugs(officialNotionClient, process.env.WRITING_DATABASE_ID)
-  
-  return { paths, fallback: true }
-}
+const { notionClient } = setupNotionAPIClients()
 
 export const getStaticProps = async ({ params }) => {
-  // TODO: maybe just try the notion client get databases method
-  // * can search the db by filter param and then get the child page data
-  const post = await notionClient.getPage(params.slug)
-  return {
-    props: { post }
+  const pageId = params.pageId
+
+  try {
+    const props = await resolveNotionPage(pageId)
+    return { props, revalidate: 10 }
+  } catch (err) {
+    console.error("Error: ", err)
+    throw err
   }
 }
 
-const WritingPost = ({ post }) => {
+/*
+  * get the slug from getStaticPaths.
+  * will need to have a caching strategy for grabbing the page id
+*/
+export const getStaticPaths = async () => {
+  if (process.env.NODE_ENV === 'development') {
+    return {
+      paths: [],
+      fallback: true
+    }
+  }
+  return { paths: [], fallback: true }
+}
+
+const WritingPost = ({ post, found }) => {
   const [writingPost, setWritingPost] = useState(undefined)
   console.log(post)
 
@@ -34,13 +41,16 @@ const WritingPost = ({ post }) => {
     setWritingPost(post)
   }, [post])
 
-  return (
+  return found ? (
     <Fragment>
       <Page
         headTitle={'dynamic page'}
         recordMap={writingPost}
       />
     </Fragment>
+  ) :
+  (
+    <Custom404 />
   )
 }
 
