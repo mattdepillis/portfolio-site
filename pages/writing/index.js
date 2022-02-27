@@ -1,4 +1,9 @@
-import { useContext, useEffect, useState, Fragment } from 'react'
+import {
+  useContext,
+  useEffect,
+  useState,
+  Fragment
+} from 'react'
 
 import Page from '../../components/Page'
 import { AppContext } from '../../global-state/AppContext'
@@ -10,7 +15,7 @@ export const getStaticProps = async () => {
 
   const sidebarOptions =
     await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
-  
+
   const writingPageData = await notionClient.getPage(process.env.WRITING_PAGE_ID)
 
   return {
