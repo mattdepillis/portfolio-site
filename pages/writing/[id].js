@@ -7,10 +7,8 @@ import Custom404 from '../404'
 
 // const { notionClient } = setupNotionAPIClients()
 
-export const getStaticProps = async (context) => {
-  console.log('c', context)
-  const pageId = context.params.pageId
-  console.log('p', pageId)
+export const getStaticProps = async ({ params }) => {
+  const pageId = params.id
 
   try {
     const props = await resolveNotionPage(pageId)
@@ -49,24 +47,25 @@ export const getStaticPaths = async () => {
   return ret
 }
 
-const WritingPost = ({ post, found }) => {
+const WritingPost = (props) => {
   const [writingPost, setWritingPost] = useState(undefined)
-  console.log(post)
+  console.log('props', props)
 
   useEffect(() => {
-    setWritingPost(post)
-  }, [post])
+    setWritingPost(props)
+  }, [props])
 
-  return found ? (
+  return (
     <Fragment>
-      <Page
-        headTitle={'dynamic page'}
-        recordMap={writingPost}
-      />
+      {!writingPost ?
+        <Custom404 />
+        :
+        <Page
+          headTitle={'dynamic page'}
+          recordMap={props.recordMap}
+        />
+      }
     </Fragment>
-  ) :
-  (
-    <Custom404 />
   )
 }
 
