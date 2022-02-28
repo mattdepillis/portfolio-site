@@ -5,13 +5,12 @@ import { getSiteMaps } from '../../lib/site-maps'
 import Page from '../../components/Page'
 import Custom404 from '../404'
 
-// const { notionClient } = setupNotionAPIClients()
-
 export const getStaticProps = async ({ params }) => {
   const pageId = params.id
 
   try {
     const props = await resolveNotionPage(pageId)
+    console.log(props.recordMap.tweetAstMap)
     return { props, revalidate: 10 }
   } catch (err) {
     console.error("Error: ", err)
@@ -43,18 +42,20 @@ export const getStaticPaths = async () => {
     ),
     fallback: true
   }
-  console.log(ret.paths)
+
   return ret
 }
 
 const WritingPost = (props) => {
   const [writingPost, setWritingPost] = useState(undefined)
-  console.log('props', props)
 
   useEffect(() => {
     setWritingPost(props)
   }, [props])
 
+  // TODO: render a spinner instead while the post is loaded properly
+  // TODO: properly render the tweet, now that the correct info is loaded
+  // * getPageTweet is the function needed for replication (NotionPage.tsx)
   return (
     <Fragment>
       {!writingPost ?
