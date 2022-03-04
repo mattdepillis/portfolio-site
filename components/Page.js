@@ -3,10 +3,12 @@ import Head from 'next/head'
 import {
   NotionRenderer, Code, Collection, CollectionRow
 } from 'react-notion-x'
+import { Tweet, TwitterContextProvider } from 'react-static-tweets'
 
 import Sidebar from './Sidebar'
 
 const Page = ({ headTitle, recordMap }) => {
+  // TODO: if a block is a tweet, we want to render that with static-tweets methods
   return (
     <Fragment>
       <Head>
@@ -20,6 +22,7 @@ const Page = ({ headTitle, recordMap }) => {
         fullPage={true}
         components={{
           code: Code,
+          tweet: Tweet,
           collection: Collection,
           collectionRow: CollectionRow
         }}
