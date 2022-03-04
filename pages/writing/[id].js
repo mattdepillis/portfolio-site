@@ -10,7 +10,6 @@ export const getStaticProps = async ({ params }) => {
 
   try {
     const props = await resolveNotionPage(pageId)
-    console.log(props.recordMap.tweetAstMap)
     return { props, revalidate: 10 }
   } catch (err) {
     console.error("Error: ", err)
@@ -48,14 +47,13 @@ export const getStaticPaths = async () => {
 
 const WritingPost = (props) => {
   const [writingPost, setWritingPost] = useState(undefined)
+  console.log(props)
 
   useEffect(() => {
     setWritingPost(props)
   }, [props])
 
   // TODO: render a spinner instead while the post is loaded properly
-  // TODO: properly render the tweet, now that the correct info is loaded
-  // * getPageTweet is the function needed for replication (NotionPage.tsx)
   return (
     <Fragment>
       {!writingPost ?

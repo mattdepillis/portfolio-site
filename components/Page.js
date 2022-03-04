@@ -1,13 +1,14 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import Head from 'next/head'
 import {
   NotionRenderer, Code, Collection, CollectionRow
 } from 'react-notion-x'
-import { Tweet, TwitterContextProvider } from 'react-static-tweets'
+import TweetEmbed from 'react-tweet-embed'
 
 import Sidebar from './Sidebar'
 
 const Page = ({ headTitle, recordMap }) => {
+  console.log('r', recordMap)
   // TODO: if a block is a tweet, we want to render that with static-tweets methods
   return (
     <Fragment>
@@ -22,7 +23,9 @@ const Page = ({ headTitle, recordMap }) => {
         fullPage={true}
         components={{
           code: Code,
-          tweet: Tweet,
+          tweet: ({ id }) => (
+            <TweetEmbed tweetId={id} />
+          ),
           collection: Collection,
           collectionRow: CollectionRow
         }}
