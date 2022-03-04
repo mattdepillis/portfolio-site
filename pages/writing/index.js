@@ -43,7 +43,7 @@ const Writing = ({
 
   return (
     <Fragment>
-      {writingPage && 
+      {writingPage &&
         <Page
           headTitle={'Writing Page'}
           recordMap={writingPage}

@@ -7,7 +7,9 @@ import Custom404 from '../404'
 
 export const getStaticProps = async ({ params }) => {
   const pageId = params.id
+  console.log('p', params)
 
+  // TODO: add the domain to load site, pageId props into the Notion Renderer
   try {
     const props = await resolveNotionPage(pageId)
     return { props, revalidate: 10 }
@@ -17,10 +19,6 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-/*
-  * get the slug from getStaticPaths.
-  * will need to have a caching strategy for grabbing the page id
-*/
 export const getStaticPaths = async () => {
   if (process.env.NODE_ENV === 'development') {
     return {
@@ -61,7 +59,7 @@ const WritingPost = (props) => {
         :
         <Page
           headTitle={'dynamic page'}
-          recordMap={props.recordMap}
+          page={props}
         />
       }
     </Fragment>
