@@ -7,9 +7,7 @@ import Custom404 from '../404'
 
 export const getStaticProps = async ({ params }) => {
   const pageId = params.id
-  console.log('p', params)
 
-  // TODO: add the domain to load site, pageId props into the Notion Renderer
   try {
     const props = await resolveNotionPage(pageId)
     return { props, revalidate: 10 }

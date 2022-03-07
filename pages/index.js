@@ -1,8 +1,7 @@
+/* eslint-disable react/jsx-key */
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Sidebar from '../components/Sidebar'
-import { Client } from '@notionhq/client'
 import { AppContext } from '../global-state/AppContext'
 import { fetchSidebarOptions } from '../notion-api/sidebar'
 import { useContext, useEffect } from 'react'

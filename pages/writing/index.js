@@ -9,14 +9,14 @@ import Page from '../../components/Page'
 import { AppContext } from '../../global-state/AppContext'
 import { fetchSidebarOptions } from '../../notion-api/sidebar'
 import { setupNotionAPIClients } from '../../notion-api/utils'
+import { resolveNotionPage } from '../../lib/resolve-notion-page'
 
 export const getStaticProps = async () => {
   const { officialNotionClient, notionClient } = setupNotionAPIClients()
 
-  const sidebarOptions =
-    await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
+  const sidebarOptions = await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
 
-  const writingPageData = await notionClient.getPage(process.env.WRITING_PAGE_ID)
+  const writingPageData = await resolveNotionPage(process.env.WRITING_PAGE_ID)
 
   return {
     props: {
@@ -46,7 +46,8 @@ const Writing = ({
       {writingPage &&
         <Page
           headTitle={'Writing Page'}
-          recordMap={writingPage}
+          rootPath={'/writing'}
+          page={writingPage}
         />
       }
     </Fragment>
