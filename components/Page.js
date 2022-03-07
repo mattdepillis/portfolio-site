@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { Fragment } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -7,8 +6,10 @@ import {
 } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
 import Link from 'next/link'
+import HashLoader from 'react-spinners/HashLoader'
 
 import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
+import { CenteredContainer } from '../styles/containers'
 import Sidebar from './Sidebar'
 
 const Page = ({
@@ -20,7 +21,11 @@ const Page = ({
 
   // TODO: change this to show a spinner or some other animation while waiting for page content to load
   const router = useRouter()
-  if (router.isFallback) return <h1>404 - Page Loading</h1>
+  if (router.isFallback) return (
+    <CenteredContainer>
+      <HashLoader />
+    </CenteredContainer>
+  )
 
   const siteMapPageUrl = mapPageUrl(site, recordMap, new URLSearchParams(), pageId)
 

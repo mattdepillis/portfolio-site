@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-key */
+import { useContext, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+
 import Sidebar from '../components/Sidebar'
 import { AppContext } from '../global-state/AppContext'
 import { fetchSidebarOptions } from '../notion-api/sidebar'
-import { useContext, useEffect } from 'react'
 import { setupNotionAPIClients } from '../notion-api/utils'
 
 /*
@@ -16,7 +16,7 @@ import { setupNotionAPIClients } from '../notion-api/utils'
   TODO: convert this component to TypeScript once I feel comfortable with types + fetching + rendering
 */
 export const getStaticProps = async () => {
-  const { officialNotionClient, notionClient } = setupNotionAPIClients()
+  const { officialNotionClient } = setupNotionAPIClients()
   const sidebarOptions = await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
 
   return { props: { sidebarOptions } }

@@ -1,9 +1,10 @@
 import { Fragment, useEffect, useState } from 'react'
-import { resolveNotionPage } from '../../lib/resolve-notion-page'
-import { getSiteMaps } from '../../lib/site-maps'
+import HashLoader from 'react-spinners/HashLoader'
 
 import Page from '../../components/Page'
-import Custom404 from '../404'
+import { CenteredContainer } from '../../styles/containers'
+import { resolveNotionPage } from '../../lib/resolve-notion-page'
+import { getSiteMaps } from '../../lib/site-maps'
 
 export const getStaticProps = async ({ params }) => {
   const pageId = params.id
@@ -53,13 +54,19 @@ const WritingPost = (props) => {
   return (
     <Fragment>
       {!writingPost ?
-        <Custom404 />
+        <CenteredContainer>
+          <HashLoader />
+        </CenteredContainer>
         :
         <Page
           headTitle={'dynamic page'}
           page={props}
         />
       }
+      {/* <Page
+        headTitle={'dynamic page'}
+        page={props}
+      /> */}
     </Fragment>
   )
 }
