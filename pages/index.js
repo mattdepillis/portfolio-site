@@ -29,7 +29,6 @@ const Home = ({ sidebarOptions }) => {
     setSidebarOptions(sidebarOptions)
   }, [sidebarOptions, setSidebarOptions])
 
-  // ! should just render the homepage of my app via notion-client
   return (
     <div className={styles.container}>
       <Head>

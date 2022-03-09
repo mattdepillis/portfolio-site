@@ -63,10 +63,6 @@ const WritingPost = (props) => {
           page={props}
         />
       }
-      {/* <Page
-        headTitle={'dynamic page'}
-        page={props}
-      /> */}
     </Fragment>
   )
 }
