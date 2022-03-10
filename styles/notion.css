@@ -1,10 +1,45 @@
-@import url("https://fonts.googleapis.com/css?family=Hind-Guntur");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
-.notion-text .notion-title {
-  font-family: Hind-Guntur;
+/* <p> blocks */
+.notion-text {
+  font-family: Lato;
 }
 
+/* page titles */
 .notion-title {
   color: black;
-  font-family: Hind-Guntur;
+  font-weight: 900;
+  font-size: 3em;
+  font-family: Montserrat;
 }
+
+/* notion page icons -- main to the page (currently centered) */
+.notion-page-icon-wrapper span.notion-page-icon {
+  border: 1px solid red;
+}
+
+.notion-page-icon-wrapper {
+  /* background-color: green; */
+  z-index: 2;
+}
+
+/* page cover images */
+.notion-page-cover {
+  width: 90%;
+  border-radius: 24px;
+  object-fit: cover;
+  display: block;
+}
+
+.notion-collection-column-title {
+  display: none !important;
+}
+
+/* page metadata for a notion collection item (e.g. a sub-page of a page, like essays) */
+.notion-collection-row-value span.notion-property.notion-property-text {
+  font-size: 1.5em;
+  font-family: Lato;
+}
+
+/* TODO: split up CSS files for notion by theme */
