@@ -6,6 +6,11 @@
   font-family: Lato;
 }
 
+/* styling for every child of the <details> notion toggle element */
+details > * {
+  font-family: Lato;
+}
+
 /* page titles */
 .notion-title {
   color: black;
