@@ -80,7 +80,7 @@ const Page = ({
           },
           code: Code,
           tweet: ({ id }) => (
-            <TweetEmbed tweetId={id} />
+            <TweetEmbed tweetId={id} options={{ theme: 'dark' }} />
           ),
           collection: Collection,
           collectionRow: CollectionRow

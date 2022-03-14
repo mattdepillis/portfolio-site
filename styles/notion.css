@@ -19,9 +19,33 @@ details > * {
   font-family: Montserrat;
 }
 
+.notion-collection-row {
+  margin-top: -10px;
+}
+
 /* notion page icons -- main to the page (currently centered) */
-.notion-page-icon-wrapper span.notion-page-icon {
+/* .notion-page-icon-wrapper > span {
   border: 1px solid red;
+  height: 50px !important;
+  width: 50px;
+  font-size: .5em;
+} */
+
+.notion-page-icon-wrapper span.notion-page-icon {
+  /* height: 50px !important;
+  width: 50px; */
+  background-color: red;
+}
+
+.notion-page-icon-wrapper {
+  /* border: 1px solid red; */
+  justify-content: left;
+  width: fit-content;
+  /* display: none; */
+}
+
+.notion-title {
+  display: flex !important;
 }
 
 .notion-page-icon-wrapper {
