@@ -68,7 +68,7 @@
 .token.inserted,
 .token.selector,
 .token.string {
-  color: #7E007B;
+  color: #C68C74;
 }
 .language-css .token.string,
 .style .token.string,
@@ -80,11 +80,11 @@
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #48BEFF;
+  color: #C586C0;
 }
 .token.class-name,
 .token.function {
-  color: #CC5A71;
+  color: #E57C04;
 }
 .token.important,
 .token.regex,

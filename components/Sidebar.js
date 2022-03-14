@@ -7,7 +7,7 @@ import { AppContext } from '../global-state/AppContext'
 const Sidebar = () => {
   const sidebarOptions = useContext(AppContext)
   return (
-    <div>hello from the sidebar!</div>
+    <div className='sidebar'>hello from the sidebar!</div>
   )
 }
 

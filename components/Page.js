@@ -1,14 +1,22 @@
+// core react + next imports
 import React, { Fragment } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import {
-  NotionRenderer, Code, Collection, CollectionRow
-} from 'react-notion-x'
-import TweetEmbed from 'react-tweet-embed'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+// react-notion-x core components
+import {
+  NotionRenderer, Code, Collection, CollectionRow, Equation
+} from 'react-notion-x'
+
+// other libs
+import TweetEmbed from 'react-tweet-embed'
 import HashLoader from 'react-spinners/HashLoader'
 
+// functions
 import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
+
+// components
 import { CenteredContainer } from '../styles/containers'
 import Sidebar from './Sidebar'
 
@@ -18,6 +26,7 @@ const Page = ({
   page: { site, pageId, recordMap, error }
 }) => {
   console.log('the record map', recordMap)
+  console.log(Equation)
 
   // TODO: change this to show a spinner or some other animation while waiting for page content to load
   const router = useRouter()
@@ -80,10 +89,11 @@ const Page = ({
           },
           code: Code,
           tweet: ({ id }) => (
-            <TweetEmbed tweetId={id} options={{ theme: 'dark' }} />
+            <TweetEmbed tweetId={id} />
           ),
           collection: Collection,
-          collectionRow: CollectionRow
+          collectionRow: CollectionRow,
+          equation: Equation
         }}
       />
     </Fragment>

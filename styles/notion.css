@@ -11,30 +11,34 @@ details > * {
   font-family: Lato;
 }
 
+.sidebar {
+  display: none;
+}
+
+.notion-collection {
+  border-top: 1px solid rgba(55, 53, 47, 0.16);
+}
+
+.notion-gallery-grid {
+  border-top: none !important;
+}
+
+/* TODO: disable the gallery dropdown button */
+
 /* page titles */
 .notion-title {
   color: black;
-  font-weight: 900;
   font-size: 3em;
-  font-family: Montserrat;
+  /* font-weight: 900; */
+  /* font-family: Montserrat; */
+}
+
+.notion-page {
+  min-width: 80%
 }
 
 .notion-collection-row {
   margin-top: -10px;
-}
-
-/* notion page icons -- main to the page (currently centered) */
-/* .notion-page-icon-wrapper > span {
-  border: 1px solid red;
-  height: 50px !important;
-  width: 50px;
-  font-size: .5em;
-} */
-
-.notion-page-icon-wrapper span.notion-page-icon {
-  /* height: 50px !important;
-  width: 50px; */
-  background-color: red;
 }
 
 .notion-page-icon-wrapper {
@@ -51,6 +55,19 @@ details > * {
 .notion-page-icon-wrapper {
   /* background-color: green; */
   z-index: 2;
+}
+
+.notion-header {
+  margin-left: 4%;
+}
+
+.notion-property-text {
+  font-family: Lato;
+}
+
+figcaption {
+  color: darkslategrey !important;
+  font-family: Lato;
 }
 
 /* page cover images */
