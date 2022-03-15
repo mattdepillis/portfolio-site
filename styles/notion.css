@@ -51,7 +51,8 @@ details > * {
 }
 
 .notion-page {
-  min-width: 80%
+  min-width: 75%
+  /* TODO: set max-width in px so page content isn't too wide on monitor screens */
 }
 
 .notion-collection-row {
@@ -67,6 +68,11 @@ details > * {
 
 .notion-title {
   display: flex !important;
+}
+
+.notion-bookmark {
+  width: 80% !important;
+  margin: 0 auto;
 }
 
 .notion-page-icon-wrapper {

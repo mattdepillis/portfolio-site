@@ -25,10 +25,8 @@ const Page = ({
   rootPath,
   page: { site, pageId, recordMap, error }
 }) => {
-  console.log('the record map', recordMap)
-  console.log(Equation)
-
-  // TODO: change this to show a spinner or some other animation while waiting for page content to load
+  // TODO: figure out whether or not this can be removed from page
+  // ! ^ might be a styling issue when this removed + just on index.js
   const router = useRouter()
   if (router.isFallback) return (
     <CenteredContainer>
