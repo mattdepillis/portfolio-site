@@ -1,0 +1,31 @@
+/* 
+  * CSS to manage responsive screen styles.
+*/
+
+@media screen and (min-width: 1025px) and (max-width: 1549px) {
+  .notion-page {
+    width: 60% !important;
+  }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1350px) {
+  .notion-page-cover {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1351px) {
+  .notion-page-cover {
+    width: 80%;
+    max-width: 1900px;
+    height: 35vh !important;
+    max-height: 35vh !important;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .notion-page {
+    width: 50% !important;
+    max-width: 1000px;
+  }
+}

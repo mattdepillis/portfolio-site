@@ -12,8 +12,10 @@ import 'rc-dropdown/assets/index.css'
 import 'katex/dist/katex.min.css'
 import 'react-static-tweets/styles.css'
 
-// * customized styles
+// * custom styles
 import '../styles/globals.css'
+import '../styles/custom-css/responsive-styles.css'
+import '../styles/custom-css/notion-collections.css'
 import '../styles/notion.css'
 
 import { AppContextProvider } from '../global-state/AppContext'
