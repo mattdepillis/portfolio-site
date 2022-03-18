@@ -17,18 +17,12 @@ details > * {
 }
 
 .notion-collection-header {
-  /* display: none; */
   border-top: 1px solid rgba(55, 53, 47, 0.16);
   border-bottom: none !important;
 }
 
 .notion-gallery-grid {
-  /* border-top: none !important; */
   border-top: 1px solid rgba(55, 53, 47, 0.16);
-}
-
-.notion-list-view {
-  /* border-top: none !important; */
 }
 
 .notion-gallery-grid-size-medium {
@@ -61,10 +55,8 @@ details > * {
 }
 
 .notion-page-icon-wrapper {
-  /* border: 1px solid red; */
   justify-content: left;
   width: fit-content;
-  /* display: none; */
 }
 
 .notion-title {
@@ -105,6 +97,10 @@ figcaption {
 
 .notion-collection-column-title {
   display: none !important;
+}
+
+.notion-collection-card-property:not(:first-child) {
+  white-space: normal !important;
 }
 
 /* page metadata for a notion collection item (e.g. a sub-page of a page, like essays) */

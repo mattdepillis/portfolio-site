@@ -16,7 +16,7 @@
 
 @media screen and (min-width: 1351px) {
   .notion-page-cover {
-    width: 80%;
+    width: 80% !important;
     max-width: 1900px;
     height: 35vh !important;
     max-height: 35vh !important;
@@ -27,5 +27,11 @@
   .notion-page {
     width: 50% !important;
     max-width: 1000px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .notion-gallery-grid {
+    grid-template-columns: 2fr;
   }
 }
