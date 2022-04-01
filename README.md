@@ -8,7 +8,7 @@ I started building this site not only to add another personal project to my port
 
 ## Tech Stack
 
-I use Notion as a content management system (CMS), [react-notion-x](https://github.com/NotionX/react-notion-x) and notion-client + Notion's beta API to fetch and render data from Notion, and Next.js as a React framework for the site. Below I enumerate the rationale behind my decision to use each incorporated technology.
+I use Notion as a content management system (CMS), <a href='https://github.com/NotionX/react-notion-x' target='_blank'>react-notion-x</a> and notion-client + Notion's beta API to fetch and render data from Notion, and Next.js as a React framework for the site. Below I enumerate the rationale behind my decision to use each incorporated technology.
 
 ### Notion-as-a-CMS
 
@@ -16,5 +16,6 @@ I'm a power user of Notion for productivity and notes; I love the UI, the mallea
 
 - notion as a cms -- why?
 - react-notion-x + notion-client
-- next.js 
+- next.js
+- currently js, but intending to migrate to Typescript in the future - explain.
 - travis fischer's portfolio site for ideas about how to manage things like pageUrls, dynamic pages, etc.

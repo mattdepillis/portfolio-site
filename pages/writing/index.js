@@ -45,7 +45,7 @@ const Writing = ({
     <Fragment>
       {writingPage &&
         <Page
-          headTitle={'Writing Page'}
+          headTitle={'Writing'}
           rootPath={'/writing'}
           page={writingPage}
         />
