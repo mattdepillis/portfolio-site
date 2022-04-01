@@ -10,7 +10,10 @@ import { AppContext } from '../global-state/AppContext'
 import { fetchSidebarOptions } from '../notion-api/sidebar'
 import { setupNotionAPIClients } from '../notion-api/utils'
 import { resolveNotionPage } from '../lib/resolve-notion-page'
-import { getTopRead } from '../lib/spotify/get-top-read'
+
+// spotify API for account data
+import { getTopTracksAndArtists } from '../lib/spotify/get-top-tracks-and-artists'
+import { getRecentlyPlayed } from '../lib/spotify/get-recently-played'
 
 export const getStaticProps = async () => {
   const { officialNotionClient, notionClient } = setupNotionAPIClients()
@@ -20,14 +23,16 @@ export const getStaticProps = async () => {
   // TODO: keep tabs with react-notion-x issues with linked collections
   const mediaPageData = await resolveNotionPage(process.env.MEDIA_PAGE_ID)
 
-  // TODO: get spotify api data here
-  const topSpotifyData = await getTopRead()
+  const { topTracks, topArtists } = await getTopTracksAndArtists()
+  const recentlyPlayed = await getRecentlyPlayed()
 
   return {
     props: {
       sidebarOptions,
       mediaPageData,
-      topSpotifyData
+      topTracks,
+      topArtists,
+      recentlyPlayed
     }
   }
 }
@@ -35,7 +40,9 @@ export const getStaticProps = async () => {
 const MediaPage = ({
   sidebarOptions,
   mediaPageData,
-  topSpotifyData
+  topTracks,
+  topArtists,
+  recentlyPlayed
 }) => {
   const { setSidebarOptions } = useContext(AppContext)
   const [mediaPage, setMediaPage] = useState(undefined)
@@ -50,8 +57,8 @@ const MediaPage = ({
   }, [mediaPageData])
 
   useEffect(() => {
-    console.log('topSpotifyData', topSpotifyData)
-  }, [topSpotifyData])
+    console.log('topSpotifyData', topTracks, topArtists, recentlyPlayed)
+  }, [topTracks, topArtists, recentlyPlayed])
 
   return (
     <Fragment>
