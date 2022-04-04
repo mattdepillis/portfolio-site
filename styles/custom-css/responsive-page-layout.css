@@ -14,7 +14,10 @@
 
 @media screen and (min-width: 1250px) and (max-width: 1350px) {
   .notion-page-cover {
-    width: 80%;
+    width: 80% !important;
+  }
+  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+    width: 80% !important;
   }
 }
 
@@ -25,10 +28,21 @@
     height: 35vh !important;
     max-height: 35vh !important;
   }
+  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+    width: 80% !important;
+    max-width: 1900px;
+    height: 35vh !important;
+    max-height: 35vh !important;
+  }
 }
 
 @media screen and (min-width: 1550px) {
   .notion-page {
+    width: 50% !important;
+    max-width: 1000px;
+  }
+
+  .spotify-data-rendered {
     width: 50% !important;
     max-width: 1000px;
   }

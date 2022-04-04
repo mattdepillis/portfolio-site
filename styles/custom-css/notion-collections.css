@@ -43,3 +43,17 @@
   font-size: 2em;
   font-family: 'Lato', sans-serif;
 }
+
+.notion-collection-card-body {
+  width: 100% !important;
+}
+
+.card-text {
+  /* text-overflow: scroll;
+  white-space: nowrap;
+  overflow: hidden; */
+}
+
+.spotify-card-footer h4 {
+  
+}

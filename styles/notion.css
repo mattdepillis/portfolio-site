@@ -15,6 +15,10 @@ details > * {
   font-size: 1.1em;
 }
 
+.notion-asset-caption {
+  font-family: 'Lato', sans-serif;
+}
+
 .sidebar {
   display: none;
 }
@@ -24,6 +28,7 @@ details > * {
   color: black;
   font-size: 6em;
   font-family: 'Cabinet Grotesk', sans-serif;
+  letter-spacing: .01rem;
   margin-top: -10px;
   display: flex !important;
 }
@@ -73,6 +78,8 @@ figcaption {
 
 .spotify-data-rendered {
   margin: 0 auto;
+  padding-left: calc(min(16px, 8vw));
+  padding-right: calc(min(16px, 8vw));
 }
 
 .spotify-header {
@@ -80,6 +87,16 @@ figcaption {
   margin-left: 3px;
 }
 
+.spotify-card {
+  width: fit-content !important;
+  margin-bottom: 30px;
+}
+
 .notion-h {
   font-family: 'Cabinet Grotesk', sans-serif;
+  letter-spacing: .01rem;
+}
+
+.notion-page-scroller {
+  margin-top: 30px;
 }
