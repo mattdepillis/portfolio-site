@@ -6,6 +6,10 @@
   .notion-page {
     width: 60% !important;
   }
+
+  .spotify-data-rendered {
+    width: 60% !important;
+  }
 }
 
 @media screen and (min-width: 1250px) and (max-width: 1350px) {
@@ -25,6 +29,11 @@
 
 @media screen and (min-width: 1550px) {
   .notion-page {
+    width: 50% !important;
+    max-width: 1000px;
+  }
+
+  .spotify-data-rendered {
     width: 50% !important;
     max-width: 1000px;
   }

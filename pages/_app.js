@@ -18,12 +18,15 @@ import '../styles/custom-css/responsive-page-layout.css'
 import '../styles/custom-css/notion-collections.css'
 import '../styles/notion.css'
 
+import { NextUIProvider } from '@nextui-org/react';
 import { AppContextProvider } from '../global-state/AppContext'
 
 const PortfolioSite = ({ Component, pageProps }) => (
-  <AppContextProvider>
-    <Component {...pageProps} />
-  </AppContextProvider>
+  <NextUIProvider>
+    <AppContextProvider>
+      <Component {...pageProps} />
+    </AppContextProvider>
+  </NextUIProvider>
 )
 
 export default PortfolioSite

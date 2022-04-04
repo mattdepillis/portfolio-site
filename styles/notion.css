@@ -70,3 +70,16 @@ figcaption {
   object-fit: cover;
   display: block;
 }
+
+.spotify-data-rendered {
+  margin: 0 auto;
+}
+
+.spotify-header {
+  color: rgb(55, 53, 47);
+  margin-left: 3px;
+}
+
+.notion-h {
+  font-family: 'Cabinet Grotesk', sans-serif;
+}

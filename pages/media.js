@@ -14,6 +14,7 @@ import { resolveNotionPage } from '../lib/resolve-notion-page'
 // spotify API for account data
 import { getTopTracksAndArtists } from '../lib/spotify/get-top-tracks-and-artists'
 import { getRecentlyPlayed } from '../lib/spotify/get-recently-played'
+import SpotifyData from '../components/SpotifyData'
 
 export const getStaticProps = async () => {
   const { officialNotionClient, notionClient } = setupNotionAPIClients()
@@ -46,6 +47,7 @@ const MediaPage = ({
 }) => {
   const { setSidebarOptions } = useContext(AppContext)
   const [mediaPage, setMediaPage] = useState(undefined)
+  const [spotifyDataLoaded, setSpotifyDataLoaded] = useState(false)
 
   useEffect(() => {
     setSidebarOptions(sidebarOptions)
@@ -57,7 +59,7 @@ const MediaPage = ({
   }, [mediaPageData])
 
   useEffect(() => {
-    console.log('topSpotifyData', topTracks, topArtists, recentlyPlayed)
+    if (topTracks && topArtists && recentlyPlayed) setSpotifyDataLoaded(true)
   }, [topTracks, topArtists, recentlyPlayed])
 
   return (
@@ -67,6 +69,13 @@ const MediaPage = ({
           headTitle={'Media'}
           rootPath={'/media'}
           page={mediaPage}
+        />
+      }
+      {spotifyDataLoaded &&
+        <SpotifyData
+          topTracks={topTracks}
+          topArtists={topArtists}
+          recentlyPlayed={recentlyPlayed}
         />
       }
     </Fragment>
