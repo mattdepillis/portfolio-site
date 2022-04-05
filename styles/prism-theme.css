@@ -40,7 +40,7 @@
   color: rgba(55, 65, 81, 1);
 }
 .token.comment {
-  color: #5b9b4c;
+  color: #26c362;
 }
 .dark-mode .token.cdata,
 .dark-mode .token.doctype,
@@ -60,7 +60,7 @@
 .token.property,
 .token.symbol,
 .token.tag {
-  color: #23967F;
+  color: #d10866;
 }
 .token.attr-name,
 .token.builtin,
@@ -68,23 +68,23 @@
 .token.inserted,
 .token.selector,
 .token.string {
-  color: #C68C74;
+  color: #a8512c;
 }
 .language-css .token.string,
 .style .token.string,
 .token.entity,
 .token.operator,
 .token.url {
-  color: rgba(245, 158, 11, 1);
+  color: rgb(17, 138, 219);
 }
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #C586C0;
+  color: #d15283;
 }
 .token.class-name,
 .token.function {
-  color: #E57C04;
+  color: #2e53bb;
 }
 .token.important,
 .token.regex,
