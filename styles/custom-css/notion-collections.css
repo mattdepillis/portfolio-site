@@ -54,6 +54,6 @@
   overflow: hidden; */
 }
 
-.spotify-card-footer h4 {
-  
+.spotify-data-rendered {
+  width: 75%;
 }
