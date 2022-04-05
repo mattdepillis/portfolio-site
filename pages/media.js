@@ -11,10 +11,12 @@ import { fetchSidebarOptions } from '../notion-api/sidebar'
 import { setupNotionAPIClients } from '../notion-api/utils'
 import { resolveNotionPage } from '../lib/resolve-notion-page'
 
+// spotify renderer for the custom-rendered spotify data (not using react-notion-x)
+import SpotifySection from '../components/spotify/SpotifySection'
+
 // spotify API for account data
 import { getTopTracksAndArtists } from '../lib/spotify/get-top-tracks-and-artists'
 import { getRecentlyPlayed } from '../lib/spotify/get-recently-played'
-import SpotifyData from '../components/SpotifyData'
 
 export const getStaticProps = async () => {
   const { officialNotionClient, notionClient } = setupNotionAPIClients()
@@ -72,7 +74,7 @@ const MediaPage = ({
         />
       }
       {spotifyDataLoaded &&
-        <SpotifyData
+        <SpotifySection
           topTracks={topTracks}
           topArtists={topArtists}
           recentlyPlayed={recentlyPlayed}

@@ -1,34 +1,27 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import { Card, Grid, Col, Text, Row, Button, Spacer } from "@nextui-org/react"
+import React, { useState, Fragment } from 'react'
+import { Card, Grid, Text, Row, Button, Spacer } from "@nextui-org/react"
 
-const SpotifyData = ({
-  topTracks,
-  topArtists,
-  recentlyPlayed
+const SpotifySubsection = ({
+  title,
+  topTracks
 }) => {
   const [cardHover, setCardHover] = useState(-1)
-  const [showMoreTracks, setShowMoreTracks] = useState(false)
-  const [tracksToShow, setTracksToShow] = useState(topTracks.items.slice(0, 3))
+  const [showMore, setShowMore] = useState(false)
+  const [itemsToShow, setItemsToShow] = useState(topTracks.items.slice(0, 3))
 
   const toggleCards = () => {
-    setTracksToShow(showMoreTracks ? topTracks.items.slice(0, 3) : topTracks.items)
-    setShowMoreTracks(!showMoreTracks)
+    setItemsToShow(showMore ? topTracks.items.slice(0, 3) : topTracks.items)
+    setShowMore(!showMore)
   }
 
-  useEffect(() => {
-    console.log('ta', topArtists)
-    console.log('rp', recentlyPlayed)
-  })
-
-  // TODO: componentize the JSX and state for this so it's reusable for all 3 types of data
-  // TODO: make the grid responsive (1 col) for smaller screens
+  // TODO: figure out right property to render depending on which collection
 
   return (
-    <div className='spotify-data-rendered'>
-      <h1 className='notion-h notion-h1 notion-h-indent-0 spotify-header'>My Current Top Tracks</h1>
+    <Fragment>
+      <h1 className='notion-h notion-h1 notion-h-indent-0 spotify-header'>{title}</h1>
       <hr className='notion-hr' />
       <Grid.Container gap={2} justify="flex-start">
-        {tracksToShow.map((track, i) => {
+        {itemsToShow.map((item, i) => {
           return (
             <Fragment>
               <Grid xs={4}>
@@ -37,7 +30,7 @@ const SpotifyData = ({
                   cover
                   hoverable
                   clickable
-                  onClick={() => window.open(`${track.external_urls.spotify}`, '_blank')}
+                  onClick={() => window.open(`${item.external_urls.spotify}`, '_blank')}
                   onMouseOver={() => setCardHover(i)}
                   onMouseLeave={() => setCardHover(-1)}
                   css={{ w: "100%" }}
@@ -45,7 +38,7 @@ const SpotifyData = ({
                   <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }} />
                   <Card.Body>
                     <Card.Image
-                      src={track.album.images[1].url}
+                      src={item.album.images[1].url}
                       objectFit='scale-down'
                     />
                   </Card.Body>
@@ -66,12 +59,12 @@ const SpotifyData = ({
                       <Grid>
                         <Row>
                           <Text className="card-text" size={15} weight="bold" color="white">
-                            {track.name}
+                            {item.name}
                           </Text>
                         </Row>
                         <Row>
                           <Text h5 className="card-text" size={12} weight="bold" color="white">
-                            {track.artists.map(artist => artist.name).join(', ')}
+                            {item.artists.map(artist => artist.name).join(', ')}
                           </Text>
                         </Row>
                       </Grid>
@@ -91,10 +84,10 @@ const SpotifyData = ({
         onClick={toggleCards}
         css={{ margin: '0 auto', marginBottom: '20px' }}
       >
-        {showMoreTracks ? 'Show Less' : 'Show More'}
+        {showMore ? 'Show Less' : 'Show More'}
       </Button>
-    </div>
+    </Fragment>
   )
 }
 
-export default SpotifyData
+export default SpotifySubsection
