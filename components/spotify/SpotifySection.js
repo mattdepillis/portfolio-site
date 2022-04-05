@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { Card, Grid, Col, Text, Row, Button, Spacer } from "@nextui-org/react"
 
 import SpotifySubsection from './SpotifySubSection'
 
@@ -11,7 +10,7 @@ const SpotifySection = ({
   useEffect(() => {
     console.log('ta', topArtists)
     console.log('rp', recentlyPlayed)
-  })
+  }, [topArtists, recentlyPlayed])
   
   // TODO: make the grid responsive (1 col) for smaller screens
 
@@ -19,7 +18,14 @@ const SpotifySection = ({
     <div className='spotify-data-rendered'>
       <SpotifySubsection
         title='My Current Top Tracks'
-        topTracks={topTracks}
+        section='topTracks'
+        items={topTracks.items}
+      />
+      <br />
+      <SpotifySubsection
+        title='My Current Top Artists'
+        section='topArtists'
+        items={topArtists.items}
       />
     </div>
   )

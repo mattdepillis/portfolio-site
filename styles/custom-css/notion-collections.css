@@ -48,10 +48,12 @@
   width: 100% !important;
 }
 
-.card-text {
-  /* text-overflow: scroll;
-  white-space: nowrap;
-  overflow: hidden; */
+.spotify-card {
+  aspect-ratio: 1/1 !important;
+}
+
+.spotify-card-image {
+  min-width: 100% !important;
 }
 
 .spotify-data-rendered {

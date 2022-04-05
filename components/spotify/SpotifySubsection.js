@@ -3,14 +3,15 @@ import { Card, Grid, Text, Row, Button, Spacer } from "@nextui-org/react"
 
 const SpotifySubsection = ({
   title,
-  topTracks
+  section,
+  items
 }) => {
   const [cardHover, setCardHover] = useState(-1)
   const [showMore, setShowMore] = useState(false)
-  const [itemsToShow, setItemsToShow] = useState(topTracks.items.slice(0, 3))
+  const [itemsToShow, setItemsToShow] = useState(items.slice(0, 3))
 
   const toggleCards = () => {
-    setItemsToShow(showMore ? topTracks.items.slice(0, 3) : topTracks.items)
+    setItemsToShow(showMore ? items.slice(0, 3) : items)
     setShowMore(!showMore)
   }
 
@@ -18,7 +19,7 @@ const SpotifySubsection = ({
 
   return (
     <Fragment>
-      <h1 className='notion-h notion-h1 notion-h-indent-0 spotify-header'>{title}</h1>
+      <h3 className='notion-h notion-h1 notion-h-indent-0 spotify-header'>{title}</h3>
       <hr className='notion-hr' />
       <Grid.Container gap={2} justify="flex-start">
         {itemsToShow.map((item, i) => {
@@ -33,13 +34,14 @@ const SpotifySubsection = ({
                   onClick={() => window.open(`${item.external_urls.spotify}`, '_blank')}
                   onMouseOver={() => setCardHover(i)}
                   onMouseLeave={() => setCardHover(-1)}
-                  css={{ w: "100%" }}
                 >
                   <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }} />
                   <Card.Body>
                     <Card.Image
-                      src={item.album.images[1].url}
-                      objectFit='scale-down'
+                      className='spotify-card-image'
+                      src={item.album ? item.album.images[1].url : item.images[1].url}
+                      objectFit='fill'
+                      autoResize
                     />
                   </Card.Body>
                   {cardHover === i &&
@@ -62,11 +64,13 @@ const SpotifySubsection = ({
                             {item.name}
                           </Text>
                         </Row>
-                        <Row>
-                          <Text h5 className="card-text" size={12} weight="bold" color="white">
-                            {item.artists.map(artist => artist.name).join(', ')}
-                          </Text>
-                        </Row>
+                        {section === 'topTracks' &&
+                          <Row>
+                            <Text h5 className="card-text" size={12} weight="bold" color="white">
+                              {item.artists.map(artist => artist.name).join(', ')}
+                            </Text>
+                          </Row>
+                        }
                       </Grid>
                     </Card.Footer>
                   }
