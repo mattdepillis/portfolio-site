@@ -7,11 +7,6 @@ const SpotifySection = ({
   topArtists,
   recentlyPlayed
 }) => {
-  useEffect(() => {
-    console.log('ta', topArtists)
-    console.log('rp', recentlyPlayed)
-  }, [topArtists, recentlyPlayed])
-  
   // TODO: make the grid responsive (1 col) for smaller screens
 
   return (
@@ -26,6 +21,12 @@ const SpotifySection = ({
         title='My Current Top Artists'
         section='topArtists'
         items={topArtists.items}
+      />
+      <br />
+      <SpotifySubsection
+        title='My Recently Played Tracks'
+        section='recentlyPlayed'
+        items={recentlyPlayed.items}
       />
     </div>
   )

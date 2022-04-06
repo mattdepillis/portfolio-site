@@ -15,23 +15,25 @@ const SpotifySubsection = ({
     setShowMore(!showMore)
   }
 
-  // TODO: figure out right property to render depending on which collection
-
   return (
     <Fragment>
       <h3 className='notion-h notion-h1 notion-h-indent-0 spotify-header'>{title}</h3>
       <hr className='notion-hr' />
       <Grid.Container gap={2} justify="flex-start">
         {itemsToShow.map((item, i) => {
+          // because track is nested for recentlyPlayed, get it here
+          const obj = section === 'recentlyPlayed' ? item.track : item
+
           return (
             <Fragment>
               <Grid xs={4}>
                 <Card
+                  key={i}
                   className="spotify-card"
                   cover
                   hoverable
                   clickable
-                  onClick={() => window.open(`${item.external_urls.spotify}`, '_blank')}
+                  onClick={() => window.open(`${obj.external_urls.spotify}`, '_blank')}
                   onMouseOver={() => setCardHover(i)}
                   onMouseLeave={() => setCardHover(-1)}
                 >
@@ -39,9 +41,7 @@ const SpotifySubsection = ({
                   <Card.Body>
                     <Card.Image
                       className='spotify-card-image'
-                      src={item.album ? item.album.images[1].url : item.images[1].url}
-                      objectFit='fill'
-                      autoResize
+                      src={obj.album ? obj.album.images[1].url : obj.images[1].url}
                     />
                   </Card.Body>
                   {cardHover === i &&
@@ -61,13 +61,13 @@ const SpotifySubsection = ({
                       <Grid>
                         <Row>
                           <Text className="card-text" size={15} weight="bold" color="white">
-                            {item.name}
+                            {obj.name}
                           </Text>
                         </Row>
-                        {section === 'topTracks' &&
+                        {section !== 'topArtists' &&
                           <Row>
                             <Text h5 className="card-text" size={12} weight="bold" color="white">
-                              {item.artists.map(artist => artist.name).join(', ')}
+                              {obj.artists.map(artist => artist.name).join(', ')}
                             </Text>
                           </Row>
                         }
