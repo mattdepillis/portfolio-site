@@ -18,13 +18,14 @@ import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
 
 // components
 import { CenteredContainer } from '../styles/containers'
-import PageAside from './PageAside'
+import Footer from './Footer'
 import Sidebar from './Sidebar'
 
 const Page = ({
   headTitle,
   rootPath,
-  page: { site, pageId, recordMap, error }
+  page: { site, pageId, recordMap, error },
+  additionalContent
 }) => {
   // TODO: figure out whether or not this can be removed from page
   // ! ^ might be a styling issue when this removed + just on index.js
@@ -59,7 +60,6 @@ const Page = ({
         recordMap={recordMap}
         fullPage={true}
         mapPageUrl={siteMapPageUrl}
-        pageAside={<PageAside />}
         components={{
           pageLink: ({
             href,
@@ -96,6 +96,8 @@ const Page = ({
           equation: Equation
         }}
       />
+      {additionalContent}
+      <Footer />
     </Fragment>
   )
 }

@@ -23,7 +23,6 @@ export const getStaticProps = async () => {
 
   const sidebarOptions = await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
 
-  // TODO: keep tabs with react-notion-x issues with linked collections
   const mediaPageData = await resolveNotionPage(process.env.MEDIA_PAGE_ID)
 
   const { topTracks, topArtists } = await getTopTracksAndArtists()
@@ -49,19 +48,24 @@ const MediaPage = ({
 }) => {
   const { setSidebarOptions } = useContext(AppContext)
   const [mediaPage, setMediaPage] = useState(undefined)
-  const [spotifyDataLoaded, setSpotifyDataLoaded] = useState(false)
+  const [spotifySection, setSpotifySection] = useState(null)
 
   useEffect(() => {
     setSidebarOptions(sidebarOptions)
   }, [sidebarOptions, setSidebarOptions])
 
   useEffect(() => {
-    console.log('m', mediaPageData)
     setMediaPage(mediaPageData)
   }, [mediaPageData])
 
   useEffect(() => {
-    if (topTracks && topArtists && recentlyPlayed) setSpotifyDataLoaded(true)
+    setSpotifySection(
+      <SpotifySection
+        topTracks={topTracks}
+        topArtists={topArtists}
+        recentlyPlayed={recentlyPlayed}
+      />
+    )
   }, [topTracks, topArtists, recentlyPlayed])
 
   return (
@@ -71,13 +75,7 @@ const MediaPage = ({
           headTitle={'Media'}
           rootPath={'/media'}
           page={mediaPage}
-        />
-      }
-      {spotifyDataLoaded &&
-        <SpotifySection
-          topTracks={topTracks}
-          topArtists={topArtists}
-          recentlyPlayed={recentlyPlayed}
+          additionalContent={spotifySection}
         />
       }
     </Fragment>

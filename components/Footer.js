@@ -1,7 +1,7 @@
 import React from 'react'
 import cs from 'classnames'
 
-import styles from '../styles/custom-css/PageAside.module.css'
+import styles from '../styles/custom-css/Footer.module.css'
 
 const socialLinks = [
   {
@@ -34,27 +34,32 @@ const socialLinks = [
       </svg>
     )
   }
-  // TODO: add spotify data here as well!
 ]
 
-export const PageAside = () =>
-  <div className={styles.pageAside}>
-    {socialLinks.map((action) => (
-      <a
-        className={cs(styles.action, styles[action.name])}
-        href={action.href}
-        key={action.name}
-        title={action.title}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <div className={styles.actionBg}>
-          <div className={styles.actionBgPane} />
-        </div>
+// TODO: incorporate the actual logo shape instead
+/*
+  TODO: transform this into an OS-like applications bar for my site -- support each subpage
+*/
+export const Footer = () =>
+  <div className={styles.container}>
+    <footer className={styles.pageAside}>
+      {socialLinks.map((action) => (
+        <a
+          className={cs(styles.action, styles[action.name])}
+          href={action.href}
+          key={action.name}
+          title={action.title}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <div className={styles.actionBg}>
+            <div className={styles.actionBgPane} />
+          </div>
 
-        <div className={styles.actionBg}>{action.icon}</div>
-      </a>
-    ))}
+          <div className={styles.actionBg}>{action.icon}</div>
+        </a>
+      ))}
+    </footer>
   </div>
 
-export default PageAside
+export default Footer
