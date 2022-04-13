@@ -9,6 +9,7 @@ const SpotifySection = ({
 }) => {
   // TODO: make the grid responsive (1 col) for smaller screens
 
+  // TODO: should more dynamically render this (e.g. via .map)
   return (
     <div className='spotify-data-rendered'>
       <SpotifySubsection

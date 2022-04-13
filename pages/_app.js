@@ -14,8 +14,8 @@ import 'react-static-tweets/styles.css'
 
 // * custom styles
 import '../styles/globals.css'
-import '../styles/custom-css/responsive-page-layout.css'
 import '../styles/custom-css/notion-collections.css'
+import '../styles/custom-css/responsive-page-layout.css'
 import '../styles/notion.css'
 
 import { NextUIProvider } from '@nextui-org/react';

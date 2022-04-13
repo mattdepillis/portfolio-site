@@ -18,6 +18,7 @@ import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
 
 // components
 import { CenteredContainer } from '../styles/containers'
+import PageAside from './PageAside'
 import Sidebar from './Sidebar'
 
 const Page = ({
@@ -58,6 +59,7 @@ const Page = ({
         recordMap={recordMap}
         fullPage={true}
         mapPageUrl={siteMapPageUrl}
+        pageAside={<PageAside />}
         components={{
           pageLink: ({
             href,
