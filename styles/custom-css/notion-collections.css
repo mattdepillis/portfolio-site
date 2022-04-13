@@ -12,10 +12,6 @@
 
 .notion-gallery-grid-size-medium {
   grid-template-columns: 2fr 2fr;
-  grid-auto-rows: 300px !important;
-  height: 500px !important;
-  overflow-x: hidden;
-  overflow-y: scroll !important;
 }
 
 .notion-gallery-grid-size-medium > a {
@@ -50,14 +46,11 @@
 
 .spotify-card {
   aspect-ratio: 1/1 !important;
-  /* border: 1px solid red; */
   background-color: blue;
   width: fit-content;
 }
 
 .spotify-card-image {
-  /* width: 100% !important;
-  height: 100% !important; */
   display: block;
   max-width: 100%;
   max-height: 100%;
@@ -67,4 +60,8 @@
 
 .spotify-data-rendered {
   width: 75%;
+}
+
+.spotify-subsection-wrapper {
+  margin-bottom: 15vh;
 }

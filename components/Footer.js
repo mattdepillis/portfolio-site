@@ -3,6 +3,8 @@ import cs from 'classnames'
 
 import styles from '../styles/custom-css/Footer.module.css'
 
+// TODO: create a similar array for the next-links for in-website content -- toggle between pages
+// TODO: put into a new file
 const socialLinks = [
   {
     name: 'twitter',
@@ -36,7 +38,6 @@ const socialLinks = [
   }
 ]
 
-// TODO: incorporate the actual logo shape instead
 /*
   TODO: transform this into an OS-like applications bar for my site -- support each subpage
 */

@@ -1,39 +1,45 @@
-/* .container {
+/* TODO: rename these classes for accuracy */
+
+.container {
+  position: fixed;
+  bottom: 3px;
   display: flex;
-  flex-direction: row;
-} */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+}
 
 .pageAside {
+  width: 60%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   gap: 10px;
-  /* align-items: center; */
-  /* text-align: center; */
   color: var(--fg-color);
-  border: 3px solid red;
-  /* margin: 0 auto; */
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid lightgrey;
 }
 
 .action {
   position: relative;
-  border-radius: 50%;
+  border-radius: 25%;
   border: 2px solid var(--fg-color-6);
-  transition: all 300ms ease-out;
+  /* transition: all 300ms ease-out; */
   width: 3.5em;
   height: 3.5em;
-  margin: 0 0 1em;
+  /* height: auto; */
+  /* margin: 0 0 1em; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
   text-decoration: none !important;
   user-select: none;
   cursor: pointer;
-}
-
-.action:last-child {
-  margin-bottom: 0;
+  line-height: 100%;
 }
 
 .actionBg {
@@ -47,6 +53,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  transition: all .2s ease-in-out;
+}
+
+.actionBg:hover {
+  transform: scale(1.3); 
 }
 
 .actionBg svg {
@@ -56,81 +68,34 @@
 }
 
 .actionBgPane {
-  transition: all 300ms ease-out;
-  border-radius: 50%;
-  width: 0;
-  height: 0;
-}
-
-.action:hover {
-  transition: all 100ms ease-out;
+  border-radius: 20%;
 }
 
 .action:hover .actionBgPane {
   width: 100%;
   height: 100%;
-  transition: all 100ms ease-out;
 }
 
-.action:hover svg {
-  transition: fill 100ms ease-out;
+.action svg {
   fill: var(--bg-color);
 }
 
-:global(.dark-mode) .action:hover svg {
-  fill: var(--fg-color);
-}
-
-.facebook .actionBgPane {
-  background: #3b5998;
-}
-.facebook:hover {
-  border-color: #3b5998;
-}
-
-.twitter .actionBgPane {
+/* * formerly filled color of the box on hover - we want a different kind of interaction here like a raise or enlargement */
+/* .twitter .actionBgPane {
   background: #2795e9;
-}
-.twitter:hover {
+} */
+
+.twitter {
+  background: #2795e9;
   border-color: #2795e9;
 }
 
-.linkedin .actionBgPane {
+.linkedin {
   background: #0077b5;
-}
-.linkedin:hover {
   border-color: #0077b5;
 }
 
-.github .actionBgPane {
+.github {
   background: #c9510c;
-}
-.github:hover {
   border-color: #c9510c;
-}
-
-.medium .actionBgPane {
-  background: #00ab6c;
-}
-.medium:hover {
-  border-color: #00ab6c;
-}
-
-.email .actionBgPane {
-  background: #777;
-}
-.email:hover {
-  border-color: #777;
-}
-
-@media only screen and (max-width: 768px) {
-  .links {
-    position: relative;
-    left: 0.5em;
-    flex-wrap: wrap;
-  }
-
-  .action:last-child {
-    margin-right: 1em;
-  }
 }
