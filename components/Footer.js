@@ -44,6 +44,12 @@ const siteLinks = [
     name: 'home',
     href: '/',
     title: 'mattdepillis home',
+    icon: '🏡'
+  },
+  {
+    name: 'about',
+    href: '/about',
+    title: 'mattdepillis about',
     icon: '👨🏼‍💻'
   },
   {
@@ -51,6 +57,18 @@ const siteLinks = [
     href: '/writing',
     title: 'mattdepillis writing',
     icon: '🖋'
+  },
+  {
+    name: 'projects',
+    href: '/projects',
+    title: 'mattdepillis projects',
+    icon: '🛠'
+  },
+  {
+    name: 'resume',
+    href: '/resume',
+    title: 'mattdepillis resume',
+    icon: '💼'
   },
   {
     name: 'media',

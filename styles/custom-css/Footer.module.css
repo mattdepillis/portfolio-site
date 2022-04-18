@@ -11,7 +11,7 @@
 }
 
 .pageAside {
-  width: 40%;
+  width: 50%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -105,17 +105,7 @@
   border-color: #c9510c;
 }
 
-.home {
-  background: #E6D7C7;
-  border-color: #E6D7C7;
-}
-
-.writing {
-  background: #E6D7C7;
-  border-color: #E6D7C7;
-}
-
-.media {
+.home, .about, .writing, .projects, .resume, .media {
   background: #E6D7C7;
   border-color: #E6D7C7;
 }
