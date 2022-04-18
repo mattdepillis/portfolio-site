@@ -2,7 +2,7 @@
 
 .container {
   position: fixed;
-  bottom: 3px;
+  bottom: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 }
 
 .pageAside {
-  width: 60%;
+  width: 40%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -23,23 +23,28 @@
   border: 1px solid lightgrey;
 }
 
+.divider {
+  border: .5px solid #000;
+  height: 60%;
+  width: fit-content;
+  color: red;
+}
+
 .action {
   position: relative;
   border-radius: 25%;
   border: 2px solid var(--fg-color-6);
-  /* transition: all 300ms ease-out; */
   width: 3.5em;
   height: 3.5em;
-  /* height: auto; */
-  /* margin: 0 0 1em; */
   display: flex;
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
   text-decoration: none !important;
   user-select: none;
   cursor: pointer;
   line-height: 100%;
+}
+
+.actionBg p {
+  font-size: 1.75em;
 }
 
 .actionBg {
@@ -98,4 +103,19 @@
 .github {
   background: #c9510c;
   border-color: #c9510c;
+}
+
+.home {
+  background: #E6D7C7;
+  border-color: #E6D7C7;
+}
+
+.writing {
+  background: #E6D7C7;
+  border-color: #E6D7C7;
+}
+
+.media {
+  background: #E6D7C7;
+  border-color: #E6D7C7;
 }
