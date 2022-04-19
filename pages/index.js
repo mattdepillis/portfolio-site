@@ -1,12 +1,8 @@
-import { Fragment, useContext, useEffect, useState } from 'react'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Fragment, useEffect, useState } from 'react'
 
-import Sidebar from '../components/Sidebar'
+import { HomeContainer } from '../styles/containers'
+
 import Page from '../components/Page'
-import { AppContext } from '../global-state/AppContext'
-import { fetchSidebarOptions } from '../notion-api/sidebar'
-import { setupNotionAPIClients } from '../notion-api/utils'
 import { resolveNotionPage } from '../lib/resolve-notion-page'
 
 /*
@@ -15,35 +11,28 @@ import { resolveNotionPage } from '../lib/resolve-notion-page'
 */
 
 export const getStaticProps = async () => {
-  const { officialNotionClient } = setupNotionAPIClients()
-
-  const sidebarOptions = await fetchSidebarOptions(officialNotionClient, process.env.PORTFOLIO_HUB_PAGE_ID)
   const homePageData = await resolveNotionPage(process.env.PORTFOLIO_HUB_PAGE_ID)
 
-  return { props: { sidebarOptions, homePageData } }
+  return { props: { homePageData } }
 }
 
-const Home = ({ sidebarOptions, homePageData }) => {
-  const { setSidebarOptions } = useContext(AppContext)
+const Home = ({ homePageData }) => {
   const [homePage, setHomePage] = useState(undefined)
 
   useEffect(() => {
-    setSidebarOptions(sidebarOptions)
-  }, [sidebarOptions, setSidebarOptions])
-
-  useEffect(() => {
-    console.log('page', homePageData)
     setHomePage(homePageData)
   }, [homePageData])
 
   return (
     <Fragment>
-      {homePage &&
-        <Page
-          headTitle={'Home'}
-          page={homePage}
-        />
-      }
+      <HomeContainer>
+        {homePage &&
+          <Page
+            headTitle={'Home'}
+            page={homePage}
+          />
+        }
+      </HomeContainer>
     </Fragment>
   )
 }

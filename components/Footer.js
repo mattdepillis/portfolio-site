@@ -75,6 +75,12 @@ const siteLinks = [
     href: '/media',
     title: 'mattdepillis media',
     icon: '📀'
+  },
+  {
+    name: 'art',
+    href: '/art',
+    title: 'mattdepillis art',
+    icon: '🎨'
   }
 ]
 

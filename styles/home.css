@@ -114,3 +114,8 @@
     flex-direction: column;
   }
 }
+
+.notion-title {
+  margin: 0 auto;
+  color: red;
+}

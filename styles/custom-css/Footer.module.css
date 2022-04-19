@@ -11,8 +11,9 @@
 }
 
 .pageAside {
-  width: 50%;
+  width: fit-content;
   height: 100%;
+  padding: 0 2vw 0 2vw;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -21,6 +22,7 @@
   backdrop-filter: blur(10px);
   border-radius: 25px;
   border: 1px solid lightgrey;
+  overflow-x: scroll;
 }
 
 .divider {
@@ -105,7 +107,7 @@
   border-color: #c9510c;
 }
 
-.home, .about, .writing, .projects, .resume, .media {
+.home, .about, .writing, .projects, .resume, .media, .art {
   background: #E6D7C7;
   border-color: #E6D7C7;
 }
