@@ -6,7 +6,7 @@ export const CenteredContainer = styled.div`
   left: 50%;
 `
 
-// ? custom css for the portfolio site's home page
+// * custom css for the portfolio site's home page
 export const HomeContainer = styled.div`
   max-height: 70vh !important;
 
@@ -14,14 +14,12 @@ export const HomeContainer = styled.div`
     margin: 0 auto !important;
     text-align: center;
     width: fit-content;
-    // border: 2px solid blue;
   }
 
   .notion-h1 {
     margin: 0 auto !important;
     text-align: center;
     width: fit-content;
-    // border: 2px solid green;
   }
 
   .notion-row {
@@ -29,9 +27,8 @@ export const HomeContainer = styled.div`
   }
 
   .notion-page-no-cover {
-    margin-top: 0 !important;
+    margin-top: 0 auto !important;
     padding-top: 10px !important;
-    padding-bottom: 0;
   }
 
   .notion-page-scroller {
@@ -42,16 +39,5 @@ export const HomeContainer = styled.div`
     align-items: center !important;
     justify-content: center !important;
     width: 50%;
-    // border: 3px solid red;
-  }
-
-  @media screen and (max-height: 1100px) {
-    .notion-title {
-      font-size: 4.5em;
-    }
-
-    .notion-h {
-      font-size: 2em !important;
-    }
   }
 `

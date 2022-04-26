@@ -35,7 +35,6 @@ details > * {
 
 .notion-page {
   width: 75%;
-  /* TODO: set max-width in px so page content isn't too wide on monitor screens */
 }
 
 .notion-page-icon-wrapper {
@@ -50,7 +49,6 @@ details > * {
 }
 
 .notion-page-icon-wrapper {
-  /* background-color: green; */
   z-index: 2;
 }
 

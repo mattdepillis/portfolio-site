@@ -2,14 +2,6 @@
   * CSS to manage responsive screen styles.
 */
 
-/* for super small screens, don't show cover photos */
-@media screen and (max-width: 350px) {
-  .notion-page-cover-wrapper {
-    display: none !important;
-    height: 1vw !important;
-  }
-}
-
 /* grid gallery -- modifications for smartphone screen resolutions */
 @media screen and (max-width: 550px) {
   .notion-gallery-grid {
@@ -21,6 +13,7 @@
     min-height: 20vh !important;
     max-height: 20vh !important;
   }
+
   .notion-page-cover-wrapper span, .notion-page-cover-wrapper img, .notion-page-cover-wrapper {
     height: 20vh !important;
     min-height: 20vh !important;
@@ -30,8 +23,6 @@
   .notion-text {
     font-size: 1em !important;
   }
-
-  /* TODO: fix h1s and h2s as well! */
 }
 
 /* * accommodates smartphones -> tablets */
@@ -48,17 +39,20 @@
   .notion-title {
     font-size: 4em !important;
   }
+
+  .notion-h {
+    font-size: 1.5em !important;
+  }
 }
 
 /* * accommodates small computer screens */
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  /* TODO: edit notion page width here */
   .notion-page {
-    /* width: 60% !important; */
+    width: 70% !important;
   }
 
   .spotify-data-rendered {
-    /* width: 60% !important; */
+    width: 70% !important;
   }
 }
 
