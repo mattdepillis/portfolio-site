@@ -18,7 +18,7 @@ import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
 
 // components
 import { CenteredContainer } from '../styles/containers'
-import Footer from './Footer'
+import Menu from './Menu'
 import Sidebar from './Sidebar'
 
 const Page = ({
@@ -97,7 +97,7 @@ const Page = ({
         }}
       />
       {additionalContent}
-      <Footer />
+      <Menu />
     </Fragment>
   )
 }

@@ -2,14 +2,40 @@
   * CSS to manage responsive screen styles.
 */
 
-/*
-  * accommodates smartphones -> tablets
-*/
-@media screen and (max-width: 800px) {
-  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
-    width: 90% !important;
+/* for super small screens, don't show cover photos */
+@media screen and (max-width: 350px) {
+  .notion-page-cover-wrapper {
+    display: none !important;
+    height: 1vw !important;
+  }
+}
+
+/* grid gallery -- modifications for smartphone screen resolutions */
+@media screen and (max-width: 550px) {
+  .notion-gallery-grid {
+    grid-template-columns: 2fr;
   }
 
+  .notion-page-cover {
+    height: 20vh !important;
+    min-height: 20vh !important;
+    max-height: 20vh !important;
+  }
+  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img, .notion-page-cover-wrapper {
+    height: 20vh !important;
+    min-height: 20vh !important;
+    max-height: 20vh !important;
+  }
+
+  .notion-text {
+    font-size: 1em !important;
+  }
+
+  /* TODO: fix h1s and h2s as well! */
+}
+
+/* * accommodates smartphones -> tablets */
+@media screen and (max-width: 800px) {
   .notion-page {
     width: 90% !important;
     padding-top: 30px !important;
@@ -24,10 +50,9 @@
   }
 }
 
-/*
-  * accommodates small computer screens
-*/
+/* * accommodates small computer screens */
 @media screen and (min-width: 801px) and (max-width: 1024px) {
+  /* TODO: edit notion page width here */
   .notion-page {
     /* width: 60% !important; */
   }
@@ -37,9 +62,7 @@
   }
 }
 
-/*
-  * accommodates mid/large computer screens -> smaller monitors
-*/
+/* * accommodates mid/large computer screens -> smaller monitors */
 @media screen and (min-width: 1025px) and (max-width: 1549px) {
   .notion-page {
     width: 60% !important;
@@ -47,6 +70,13 @@
 
   .spotify-data-rendered {
     width: 60% !important;
+  }
+}
+
+/* page cover -- implement smaller fit on smartphones -> tablets -> smaller computers */
+@media screen and (max-width: 1249px) {
+  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+    width: 90% !important;
   }
 }
 
@@ -76,9 +106,7 @@
   }
 }
 
-/*
-  * accommodates mid/large size monitors -> ...
-*/
+/* * accommodates mid/large size monitors -> ... */
 @media screen and (min-width: 1550px) {
   .notion-page {
     width: 50% !important;
@@ -93,12 +121,5 @@
   .spotify-data-rendered {
     width: 50% !important;
     max-width: 1000px;
-  }
-}
-
-/* grid gallery -- modifications for smartphone screen resolutions */
-@media screen and (max-width: 550px) {
-  .notion-gallery-grid {
-    grid-template-columns: 2fr;
   }
 }

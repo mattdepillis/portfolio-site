@@ -6,17 +6,22 @@ export const CenteredContainer = styled.div`
   left: 50%;
 `
 
+// ? custom css for the portfolio site's home page
 export const HomeContainer = styled.div`
   max-height: 70vh !important;
 
   .notion-title {
     margin: 0 auto !important;
+    text-align: center;
     width: fit-content;
+    // border: 2px solid blue;
   }
 
   .notion-h1 {
     margin: 0 auto !important;
+    text-align: center;
     width: fit-content;
+    // border: 2px solid green;
   }
 
   .notion-row {
@@ -37,7 +42,7 @@ export const HomeContainer = styled.div`
     align-items: center !important;
     justify-content: center !important;
     width: 50%;
-    border: 3px solid red;
+    // border: 3px solid red;
   }
 
   @media screen and (max-height: 1100px) {
