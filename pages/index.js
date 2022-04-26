@@ -10,6 +10,7 @@ import { resolveNotionPage } from '../lib/resolve-notion-page'
     * would be nice to cache dark/light mode
 */
 
+
 export const getStaticProps = async () => {
   const homePageData = await resolveNotionPage(process.env.PORTFOLIO_HUB_PAGE_ID)
 
@@ -25,14 +26,14 @@ const Home = ({ homePageData }) => {
 
   return (
     <Fragment>
-      <HomeContainer>
         {homePage &&
-          <Page
-            headTitle={'Home'}
-            page={homePage}
-          />
+          <HomeContainer>
+            <Page
+              headTitle={'Home'}
+              page={homePage}
+            />
+          </HomeContainer>
         }
-      </HomeContainer>
     </Fragment>
   )
 }

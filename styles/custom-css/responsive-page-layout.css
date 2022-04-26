@@ -2,6 +2,44 @@
   * CSS to manage responsive screen styles.
 */
 
+/*
+  * accommodates smartphones -> tablets
+*/
+@media screen and (max-width: 800px) {
+  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+    width: 90% !important;
+  }
+
+  .notion-page {
+    width: 90% !important;
+    padding-top: 30px !important;
+  }
+
+  .spotify-data-rendered {
+    width: 90% !important;
+  }
+
+  .notion-title {
+    font-size: 4em !important;
+  }
+}
+
+/*
+  * accommodates small computer screens
+*/
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  .notion-page {
+    /* width: 60% !important; */
+  }
+
+  .spotify-data-rendered {
+    /* width: 60% !important; */
+  }
+}
+
+/*
+  * accommodates mid/large computer screens -> smaller monitors
+*/
 @media screen and (min-width: 1025px) and (max-width: 1549px) {
   .notion-page {
     width: 60% !important;
@@ -12,6 +50,7 @@
   }
 }
 
+/* page cover -- implement smaller fit on larger computer screens */
 @media screen and (min-width: 1250px) and (max-width: 1350px) {
   .notion-page-cover {
     width: 80% !important;
@@ -21,6 +60,7 @@
   }
 }
 
+/* page cover -- implement smaller width, and margin + height readjustments for larger screens */
 @media screen and (min-width: 1351px) {
   .notion-page-cover {
     width: 80% !important;
@@ -36,6 +76,9 @@
   }
 }
 
+/*
+  * accommodates mid/large size monitors -> ...
+*/
 @media screen and (min-width: 1550px) {
   .notion-page {
     width: 50% !important;
@@ -53,6 +96,7 @@
   }
 }
 
+/* grid gallery -- modifications for smartphone screen resolutions */
 @media screen and (max-width: 550px) {
   .notion-gallery-grid {
     grid-template-columns: 2fr;
