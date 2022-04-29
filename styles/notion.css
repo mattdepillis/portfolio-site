@@ -19,10 +19,6 @@ details > * {
   font-family: 'Lato', sans-serif;
 }
 
-.sidebar {
-  display: none;
-}
-
 /* page titles */
 .notion-title {
   color: black;

@@ -19,7 +19,6 @@ import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
 // components
 import { CenteredContainer } from '../styles/containers'
 import Menu from './Menu'
-import Sidebar from './Sidebar'
 
 const Page = ({
   headTitle,
@@ -55,7 +54,6 @@ const Page = ({
           </>
         )}
       </Head>
-      <Sidebar />
       <NotionRenderer
         recordMap={recordMap}
         fullPage={true}
