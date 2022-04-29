@@ -44,7 +44,6 @@ export const getStaticPaths = async () => {
 
 const WritingPost = (props) => {
   const [writingPost, setWritingPost] = useState(undefined)
-  console.log(props)
 
   useEffect(() => {
     setWritingPost(props)
