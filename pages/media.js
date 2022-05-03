@@ -1,9 +1,4 @@
-import {
-  useContext,
-  useEffect,
-  useState,
-  Fragment
-} from 'react'
+import { useEffect, useState, Fragment } from 'react'
 
 import Page from '../components/Page'
 import { resolveNotionPage } from '../lib/resolve-notion-page'

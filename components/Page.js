@@ -70,6 +70,21 @@ const Page = ({
             locale,
             ...props
           }) => {
+            /*
+              * for supported collections, remaps collection item hrefs to url property
+            */
+            if (props.className.includes('notion-page-link') && headTitle === 'Media') {
+              let properties
+
+              if (props.className === 'notion-list-item notion-page-link') {
+                properties = props.children[0].props.children.props.block.properties
+              } else properties = props.children.props.block.properties
+
+              const newHref = properties['2507ec7d-729d-47ec-b210-c62e3c406a7d'][0][0]
+
+              return <a href={newHref} target="_blank" rel="noreferrer" {...props} />
+            }
+
             return (
               <Link
                 href={`${rootPath || ''}${href}`}
@@ -95,6 +110,7 @@ const Page = ({
         }}
       />
       {additionalContent}
+      {/* // TODO: manually set notion-page bottom margin depending on additionalContent */}
       <Menu />
     </Fragment>
   )
