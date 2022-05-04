@@ -20,11 +20,13 @@
     max-height: 20vh !important;
   }
 
-  .notion-text,
-  .notion-list,
-  .notion-quote,
-  summary {
-    font-size: 1em !important;
+  .notion-title { font-size: 3em !important; }
+}
+
+/* * accommodates large smartphones -> small tablets */
+@media screen and (min-width: 551px) and (max-width: 799px) {
+  .notion-title {
+    font-size: 3.5em !important;
   }
 }
 
@@ -39,41 +41,46 @@
     width: 90% !important;
   }
 
-  .notion-title {
-    font-size: 4em !important;
-  }
-
   .notion-h {
     font-size: 1.5em !important;
+  }
+
+  .notion-text,
+  li,
+  .notion-quote,
+  summary {
+    font-size: 1em !important;
   }
 }
 
 /* * accommodates small computer screens */
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  .notion-page {
-    width: 70% !important;
-  }
-
+  .notion-page,
   .spotify-data-rendered {
     width: 70% !important;
   }
 
   .notion-text,
-  .notion-list,
+  li,
   .notion-quote,
   summary {
     font-size: 1.1em !important;
+  }
+
+  .notion-title {
+    font-size: 3.5em !important;
   }
 }
 
 /* * accommodates mid/large computer screens -> smaller monitors */
 @media screen and (min-width: 1025px) and (max-width: 1549px) {
-  .notion-page {
+  .notion-page,
+  .spotify-data-rendered {
     width: 60% !important;
   }
 
-  .spotify-data-rendered {
-    width: 60% !important;
+  .notion-title {
+    font-size: 5em !important;
   }
 }
 
@@ -86,23 +93,18 @@
 
 /* page cover -- implement smaller fit on larger computer screens */
 @media screen and (min-width: 1250px) and (max-width: 1350px) {
-  .notion-page-cover {
-    width: 80% !important;
-  }
-  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+  .notion-page-cover,
+  .notion-page-cover-wrapper span,
+  .notion-page-cover-wrapper img {
     width: 80% !important;
   }
 }
 
 /* page cover -- implement smaller width, and margin + height readjustments for larger screens */
 @media screen and (min-width: 1351px) {
-  .notion-page-cover {
-    width: 80% !important;
-    max-width: 1900px;
-    height: 35vh !important;
-    max-height: 35vh !important;
-  }
-  .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+  .notion-page-cover,
+  .notion-page-cover-wrapper span,
+  .notion-page-cover-wrapper img {
     width: 80% !important;
     max-width: 1900px;
     height: 35vh !important;
@@ -112,16 +114,7 @@
 
 /* * accommodates mid/large size monitors -> ... */
 @media screen and (min-width: 1550px) {
-  .notion-page {
-    width: 50% !important;
-    max-width: 1000px;
-  }
-
-  .spotify-data-rendered {
-    width: 50% !important;
-    max-width: 1000px;
-  }
-
+  .notion-page,
   .spotify-data-rendered {
     width: 50% !important;
     max-width: 1000px;
