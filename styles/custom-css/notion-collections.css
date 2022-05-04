@@ -34,6 +34,14 @@
   font-family: 'Lato', sans-serif;
 }
 
+span.notion-page-title-text {
+  font-size: 1.15em;
+}
+
+span.notion-property-text {
+  font-size: 1.1em;
+}
+
 /* page metadata for a notion collection item (e.g. a sub-page of a page, like essays) */
 .notion-collection-row-value span.notion-property.notion-property-text {
   font-size: 1.4em !important;
