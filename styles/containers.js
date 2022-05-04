@@ -41,3 +41,17 @@ export const HomeContainer = styled.div`
     width: 50%;
   }
 `
+
+// * custom css for Media page -- fix spacing between notion-page and custom spotify content
+export const MediaContainer = styled.div`
+  .notion-page {
+    padding-bottom: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  .notion-app {
+    min-height: 0vh !important;
+  }
+  .notion-page-scroller {
+    min-height: 0vh;
+  }
+`

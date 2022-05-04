@@ -110,7 +110,6 @@ const Page = ({
         }}
       />
       {additionalContent}
-      {/* // TODO: manually set notion-page bottom margin depending on additionalContent */}
       <Menu />
     </Fragment>
   )

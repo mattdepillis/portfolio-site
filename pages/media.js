@@ -1,6 +1,7 @@
 import { useEffect, useState, Fragment } from 'react'
 
 import Page from '../components/Page'
+import { MediaContainer } from '../styles/containers'
 import { resolveNotionPage } from '../lib/resolve-notion-page'
 
 // spotify renderer for the custom-rendered spotify data (not using react-notion-x)
@@ -42,9 +43,7 @@ const MediaPage = ({
   useEffect(() => {
     setSpotifySection(
       <SpotifySection
-        topTracks={topTracks}
-        topArtists={topArtists}
-        recentlyPlayed={recentlyPlayed}
+        data={ { topTracks, topArtists, recentlyPlayed }}
       />
     )
   }, [topTracks, topArtists, recentlyPlayed])
@@ -52,12 +51,14 @@ const MediaPage = ({
   return (
     <Fragment>
       {mediaPage &&
-        <Page
-          headTitle={'Media'}
-          rootPath={'/media'}
-          page={mediaPage}
-          additionalContent={spotifySection}
-        />
+        <MediaContainer>
+          <Page
+            headTitle={'Media'}
+            rootPath={'/media'}
+            page={mediaPage}
+            additionalContent={spotifySection}
+          />
+        </MediaContainer>
       }
     </Fragment>
   )
