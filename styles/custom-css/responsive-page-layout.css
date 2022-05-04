@@ -20,7 +20,10 @@
     max-height: 20vh !important;
   }
 
-  .notion-text {
+  .notion-text,
+  .notion-list,
+  .notion-quote,
+  summary {
     font-size: 1em !important;
   }
 }
@@ -53,6 +56,13 @@
 
   .spotify-data-rendered {
     width: 70% !important;
+  }
+
+  .notion-text,
+  .notion-list,
+  .notion-quote,
+  summary {
+    font-size: 1.1em !important;
   }
 }
 
