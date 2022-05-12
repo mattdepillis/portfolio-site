@@ -59,7 +59,9 @@ const WritingPost = (props) => {
         :
         <Page
           headTitle={'dynamic page'}
+          parent={'Writing'}
           page={props}
+          backArrow
         />
       }
     </Fragment>

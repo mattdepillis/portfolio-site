@@ -60,6 +60,8 @@ const ProjectPost = (props) => {
         <Page
           headTitle={'dynamic page'}
           page={props}
+          parent={'Projects'}
+          backArrow
         />
       }
     </Fragment>

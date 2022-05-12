@@ -12,18 +12,23 @@ import {
 // other libs
 import TweetEmbed from 'react-tweet-embed'
 import HashLoader from 'react-spinners/HashLoader'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 // functions
 import { getCanonicalPageUrl, mapPageUrl } from '../lib/map-page-url'
 
 // components
-import { CenteredContainer } from '../styles/containers'
+import { BackArrowContainer, CenteredContainer } from '../styles/containers'
 import Menu from './Menu'
+import { siteLinks } from './Links'
 
 const Page = ({
   headTitle,
   rootPath,
   page: { site, pageId, recordMap, error },
+  parent,
+  backArrow,
   additionalContent
 }) => {
   // TODO: figure out whether or not this can be removed from page
@@ -54,6 +59,18 @@ const Page = ({
           </>
         )}
       </Head>
+      {backArrow &&
+        <BackArrowContainer className='back-arrow-container'>
+          {siteLinks.filter(link => link.name === parent.toLowerCase())
+            .map(item =>
+              <Fragment>
+                <span>
+                  <FontAwesomeIcon icon={faArrowLeftLong} />{item.icon}&nbsp;{parent}
+                </span>
+              </Fragment>
+            )}
+        </BackArrowContainer>
+      }
       <NotionRenderer
         recordMap={recordMap}
         fullPage={true}

@@ -21,6 +21,20 @@
   }
 
   .notion-title { font-size: 3em !important; }
+
+  .notion-collection {
+    width: 90%;
+  }
+
+  span.notion-page-title-text {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .notion-list-item-body {
+    display: none;
+  }
 }
 
 /* * accommodates large smartphones -> small tablets */
@@ -37,6 +51,7 @@
     padding-top: 30px !important;
   }
 
+  .back-arrow-container,
   .spotify-data-rendered {
     width: 90% !important;
   }
@@ -56,8 +71,9 @@
 /* * accommodates small computer screens */
 @media screen and (min-width: 801px) and (max-width: 1024px) {
   .notion-page,
+  .back-arrow-container,
   .spotify-data-rendered {
-    width: 70% !important;
+    width: 80% !important;
   }
 
   .notion-text,
@@ -75,6 +91,7 @@
 /* * accommodates mid/large computer screens -> smaller monitors */
 @media screen and (min-width: 1025px) and (max-width: 1549px) {
   .notion-page,
+  .back-arrow-container,
   .spotify-data-rendered {
     width: 60% !important;
   }
@@ -115,6 +132,7 @@
 /* * accommodates mid/large size monitors -> ... */
 @media screen and (min-width: 1550px) {
   .notion-page,
+  .back-arrow-container,
   .spotify-data-rendered {
     width: 50% !important;
     max-width: 1000px;

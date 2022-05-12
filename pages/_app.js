@@ -18,6 +18,10 @@ import '../styles/custom-css/notion-collections.css'
 import '../styles/custom-css/responsive-page-layout.css'
 import '../styles/notion.css'
 
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
+
 const PortfolioSite = ({ Component, pageProps }) => (
   <Component {...pageProps} />
 )

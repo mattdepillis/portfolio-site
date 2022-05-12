@@ -6,6 +6,18 @@ export const CenteredContainer = styled.div`
   left: 50%;
 `
 
+export const BackArrowContainer = styled.div`
+  @import url("https://api.fontshare.com/css?f[]=cabinet-grotesk@400,800&f[]=clash-grotesk@400&display=swap");
+
+  margin: 0 auto !important;
+  margin-top: 30px !important;
+  padding-left: calc(min(16px, 8vw));
+  padding-right: calc(min(16px, 8vw));
+  font-size: 2em;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: bold;
+`
+
 // * custom css for the portfolio site's home page
 export const HomeContainer = styled.div`
   max-height: 70vh !important;
