@@ -13,7 +13,7 @@ export const BackArrowContainer = styled.div`
   margin-top: 30px !important;
   padding-left: calc(min(16px, 8vw));
   padding-right: calc(min(16px, 8vw));
-  font-size: 2em;
+  font-size: 1.75em;
   font-family: 'Cabinet Grotesk', sans-serif;
   font-weight: bold;
 `
@@ -26,12 +26,14 @@ export const HomeContainer = styled.div`
     margin: 0 auto !important;
     text-align: center;
     width: fit-content;
+    color: rgb(110, 155, 189);
   }
 
   .notion-h1 {
     margin: 0 auto !important;
     text-align: center;
     width: fit-content;
+    color: rgb(213, 200, 138);
   }
 
   .notion-row {

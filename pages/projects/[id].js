@@ -59,8 +59,8 @@ const ProjectPost = (props) => {
         :
         <Page
           headTitle={'dynamic page'}
-          page={props}
           parent={'Projects'}
+          page={props}
           backArrow
         />
       }

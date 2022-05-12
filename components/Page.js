@@ -63,11 +63,11 @@ const Page = ({
         <BackArrowContainer className='back-arrow-container'>
           {siteLinks.filter(link => link.name === parent.toLowerCase())
             .map(item =>
-              <Fragment>
-                <span>
+              <Link href={item.href} passHref>
+                <span className="link">
                   <FontAwesomeIcon icon={faArrowLeftLong} />{item.icon}&nbsp;{parent}
                 </span>
-              </Fragment>
+              </Link>
             )}
         </BackArrowContainer>
       }
@@ -89,6 +89,8 @@ const Page = ({
           }) => {
             /*
               * for supported collections, remaps collection item hrefs to url property
+              * right now, only supported for media reading table as a hackaround to get
+              * the entire row to link out to article onhover / onclick
             */
             if (props.className.includes('notion-page-link') && headTitle === 'Media') {
               let properties
