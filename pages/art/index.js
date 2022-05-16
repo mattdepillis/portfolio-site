@@ -1,7 +1,7 @@
 import { useEffect, useState, Fragment } from 'react'
 
-import Page from '../components/Page'
-import { resolveNotionPage } from '../lib/resolve-notion-page'
+import Page from '../../components/Page'
+import { resolveNotionPage } from '../../lib/resolve-notion-page'
 
 export const getStaticProps = async () => {
   const artPageData = await resolveNotionPage(process.env.ART_PAGE_ID)

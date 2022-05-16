@@ -89,7 +89,7 @@ const Page = ({
           }) => {
             /*
               * for supported collections, remaps collection item hrefs to url property
-              * right now, only supported for media reading table as a hackaround to get
+              * right now, only supports media reading table as a hackaround to get
               * the entire row to link out to article onhover / onclick
             */
             if (props.className.includes('notion-page-link') && headTitle === 'Media') {
