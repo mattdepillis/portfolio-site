@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 10vh;
+  height: 80px;
 }
 
 .pageAside {
@@ -43,13 +43,16 @@
   user-select: none;
   cursor: pointer;
   line-height: 100%;
+  justify-content: center;
 }
 
-.actionBg p {
+.social p,
+.page p {
   font-size: 1.75em;
 }
 
-.actionBg {
+.social,
+.page {
   position: absolute;
   top: 0;
   left: 0;
@@ -64,21 +67,25 @@
   transition: all .2s ease-in-out;
 }
 
-.actionBg:hover {
-  transform: scale(1.3); 
+.social:hover,
+.page:hover {
+  transform: scale(1.3);
 }
 
-.actionBg svg {
+/* * svgs for socials logos */
+.social svg {
   width: 50%;
   height: 50%;
   fill: var(--fg-color-6);
 }
 
-.actionBgPane {
+.socialPane,
+.pagePane {
   border-radius: 20%;
 }
 
-.action:hover .actionBgPane {
+.action:hover .socialPane,
+.action:hover .pagePane {
   width: 100%;
   height: 100%;
 }
@@ -88,7 +95,7 @@
 }
 
 /* * formerly filled color of the box on hover - we want a different kind of interaction here like a raise or enlargement */
-/* .twitter .actionBgPane {
+/* .twitter .pagePane {
   background: #2795e9;
 } */
 
@@ -110,4 +117,32 @@
 .home, .about, .writing, .projects, .resume, .media, .art {
   background: #E6D7C7;
   border-color: #E6D7C7;
+}
+
+.activeRoute .action::after {
+  /* font-size: 2em !important;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center; */
+
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: black;
+  content: "";
+  bottom: 2px;
+  margin-bottom: -12px;
+  /* padding: 5px; */
+}
+
+/* TODO: get rid of this */
+/* .siteLinkContainer {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+} */
+
+.page p {
+  color: black !important;
 }
