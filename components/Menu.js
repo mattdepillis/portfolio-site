@@ -13,49 +13,56 @@ export const Menu = () => {
 
   return (
     <div className={styles.container}>
-      <footer className={styles.pageAside}>
-        {siteLinks.map((page) => (
-          <div className={cs(
-            styles.siteLinkContainer,
-            (router.pathname === page.href) && styles.activeRoute)}>
-            <Link href={page.href}>
-              <a
-                className={cs(styles.action, styles[page.name])}
-                key={page.name}
-                title={page.title}  
-              >
-                <div className={styles.page}>
-                  <div className={styles.pagePane} />
-                </div>
+      <footer className={styles.dockOuter}>
+        <div className={styles.dockInner}>
+          {siteLinks.map((page) => (
+            <div
+              className={cs(
+                styles.siteLinkContainer,
 
-                <div className={styles.page}>
-                  <p>{page.icon}</p>
-                </div>
-              </a>
-            </Link>
-          </div>
-        ))}
-
-        <div className={styles.divider}></div>
-
-        {socialLinks.map((social) => (
-          <div>
-            <a
-              className={cs(styles.action, styles[social.name])}
-              href={social.href}
-              key={social.name}
-              title={social.title}
-              target='_blank'
-              rel='noopener noreferrer'
+                // * if the active path of the site === page href, style path button in dock
+                (router.pathname === page.href) && styles.activeRoute
+              )}
             >
-              <div className={styles.social}>
-                <div className={styles.socialPane} />
-              </div>
+              <Link href={page.href}>
+                <a
+                  className={cs(styles.action, styles[page.name])}
+                  key={page.name}
+                  title={page.title}  
+                >
+                  <div className={styles.page}>
+                    <div className={styles.pagePane} />
+                  </div>
 
-              <div className={styles.social}>{social.icon}</div>
-            </a>
-          </div>
-        ))}
+                  <div className={styles.page}>
+                    <p>{page.icon}</p>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          ))}
+
+          <div className={styles.divider}></div>
+
+          {socialLinks.map((social) => (
+            <div>
+              <a
+                className={cs(styles.action, styles[social.name])}
+                href={social.href}
+                key={social.name}
+                title={social.title}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <div className={styles.social}>
+                  <div className={styles.socialPane} />
+                </div>
+
+                <div className={styles.social}>{social.icon}</div>
+              </a>
+            </div>
+          ))}
+        </div>
       </footer>
     </div>
   )
