@@ -5,11 +5,8 @@ import { useRouter } from 'next/router'
 import styles from '../styles/custom-css/Menu.module.css'
 import { siteLinks, socialLinks } from './Links'
 
-
 export const Menu = () => {
   const router = useRouter()
-
-  console.log(router.pathname)
 
   return (
     <div className={styles.container}>
@@ -35,7 +32,7 @@ export const Menu = () => {
                   </div>
 
                   <div className={styles.page}>
-                    <p>{page.icon}</p>
+                    <p className={styles.siteLinkIcon}>{page.icon}</p>
                   </div>
                 </a>
               </Link>

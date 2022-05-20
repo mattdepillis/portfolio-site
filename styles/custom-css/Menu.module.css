@@ -107,39 +107,42 @@
 
 .action svg {
   fill: var(--bg-color);
+  stroke: black;
 }
 
-/* * formerly filled color of the box on hover - we want a different kind of interaction here like a raise or enlargement */
-/* .twitter .pagePane {
-  background: #2795e9;
-} */
-
-.twitter {
+.twitter:hover {
   background: #2795e9;
   border-color: #2795e9;
 }
 
-.linkedin {
+.linkedin:hover {
   background: #0077b5;
   border-color: #0077b5;
 }
 
-.github {
+.github:hover {
   background: #c9510c;
   border-color: #c9510c;
 }
 
-.home, .about, .writing, .projects, .resume, .media, .art {
-  background: #E6D7C7;
-  border-color: #E6D7C7;
+.home, .about, .writing, .projects, .resume, .media, .art,
+.twitter, .github, .linkedin {
+  background: white;
+  border-color: darkgrey;
+}
+
+.home:hover,
+.about:hover,
+.writing:hover,
+.projects:hover,
+.resume:hover,
+.media:hover,
+.art:hover {
+  background: #DEE1E3;
+  border-color: #DEE1E3;
 }
 
 .activeRoute .action::after {
-  /* font-size: 2em !important;
-  font-weight: bold;
-  margin: 0 auto;
-  text-align: center; */
-
   position: absolute;
   width: 5px;
   height: 5px;
@@ -148,16 +151,19 @@
   content: "";
   bottom: 2px;
   margin-bottom: -12px;
-  /* padding: 5px; */
 }
 
-/* TODO: get rid of this */
-/* .siteLinkContainer {
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-} */
+/* * greyscales the emojis for site routes in siteOS docks */
+.siteLinkIcon {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
 
-.page p {
-  color: black !important;
+.action:hover .siteLinkIcon {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.action:hover svg {
+  stroke: none;
 }
