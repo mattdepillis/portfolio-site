@@ -138,8 +138,8 @@
 .resume:hover,
 .media:hover,
 .art:hover {
-  background: #DEE1E3;
-  border-color: #DEE1E3;
+  background: #BAD7F2;
+  border-color: #BAD7F2;
 }
 
 .activeRoute .action::after {
