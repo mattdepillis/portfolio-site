@@ -131,16 +131,19 @@
   border-color: darkgrey;
 }
 
-.home:hover,
-.about:hover,
-.writing:hover,
-.projects:hover,
-.resume:hover,
-.media:hover,
-.art:hover {
-  background: #BAD7F2;
-  border-color: #BAD7F2;
-}
+.home:hover { background: #A9DAAD; border-color: #A9DAAD; }
+
+.about:hover { background: #BAD7F2; border-color: #BAD7F2; }
+
+.writing:hover { background: #FFB997; border-color: #FFB997; }
+
+.projects:hover { background: #EEA659; border-color: #EEA659; }
+
+.resume:hover { background: #92A1B5; border-color: #92A1B5; }
+
+.media:hover { background: #CEBACF; border-color: #CEBACF; }
+
+.art:hover { background: #F3B9BA; border-color: #F3B9BA; }
 
 .activeRoute .action::after {
   position: absolute;
