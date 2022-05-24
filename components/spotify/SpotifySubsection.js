@@ -80,16 +80,18 @@ const SpotifySubsection = ({
           )})}
       </Grid.Container>
       <Spacer />
-      <Button
-        auto
-        color="secondary"
-        rounded
-        flat
-        onClick={toggleCards}
-        css={{ margin: '0 auto', marginBottom: '20px' }}
-      >
-        {showMore ? 'Show Less' : 'Show More'}
-      </Button>
+      <div>
+        <Button
+          auto
+          color="primary"
+          rounded
+          flat
+          onClick={() => toggleCards()}
+          css={{ margin: '0 auto', marginBottom: '20px', zIndex: '0' }}
+        >
+          {showMore ? 'Show Less' : 'Show More'}
+        </Button>
+      </div>
     </Fragment>
   )
 }

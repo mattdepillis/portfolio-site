@@ -10,5 +10,5 @@ export const spotifyCategories = [
   {
     title: 'My Recently Played Tracks',
     section: 'recentlyPlayed'
-  },
+  }
 ]

@@ -74,20 +74,9 @@ figcaption {
   display: block;
 }
 
-.spotify-data-rendered {
-  margin: 0 auto;
-  padding-left: calc(min(16px, 8vw));
-  padding-right: calc(min(16px, 8vw));
-}
-
-.spotify-header {
-  color: rgb(55, 53, 47);
-  margin-left: 3px;
-}
-
-.spotify-card {
-  width: fit-content !important;
-  margin-bottom: 30px;
+/* makes sure that list collection multiselect properties don't wrap onto newline */
+.notion-property-multi_select {
+  flex-wrap: nowrap !important;
 }
 
 .notion-h {
@@ -99,7 +88,26 @@ figcaption {
   margin-top: 30px;
 }
 
+/* styling for bookmark images -- make sure they render in full */
 .notion-bookmark-image {
   width: 100%;
   height: 100%;
+}
+
+/* formatting for spotify data -- match centering + padding of .notion-page */
+.spotify-data-rendered {
+  margin: 0 auto;
+  padding-left: calc(min(16px, 8vw));
+  padding-right: calc(min(16px, 8vw));
+}
+
+/* match spotify header to notion page headers */
+.spotify-header {
+  color: rgb(55, 53, 47);
+  margin-left: 3px;
+}
+
+.spotify-card {
+  width: fit-content !important;
+  margin-bottom: 30px;
 }

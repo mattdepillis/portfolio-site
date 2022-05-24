@@ -10,6 +10,7 @@
   width: 100%;
   height: 80px;
   bottom: 2vh;
+  z-index: 2;
 }
 
 /* * the outer siteOS dock container */
