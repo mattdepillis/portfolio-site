@@ -51,7 +51,6 @@ const Page = ({
   const block = recordMap?.block?.[keys[0]]?.value
   const title = getBlockTitle(block, recordMap) || site.title
 
-  // TODO: dynamically set the headTitle for dynamic pages
   return (
     <Fragment>
       <Head>

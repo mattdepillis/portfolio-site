@@ -1,6 +1,12 @@
 import { useState, Fragment } from 'react'
 import { Card, Grid, Text, Row, Button, Spacer } from "@nextui-org/react"
 
+/*
+  TODO: reengineer the grid section to take a width variable.
+  * if less than 600px for example, structure rows in pairs, not triples.
+  * could even be singles under something like 450px.
+  * at smaller widths, can trim the list to not show more than top 5-10 items.
+*/
 const SpotifySubsection = ({
   title,
   section,
@@ -64,7 +70,7 @@ const SpotifySubsection = ({
                             {obj.name}
                           </Text>
                         </Row>
-                        {section !== 'topArtists' &&
+                        {(section !== 'topArtists' && window.innerWidth > 600) &&
                           <Row>
                             <Text h5 className="card-text" size={12} weight="bold" color="white">
                               {obj.artists.map(artist => artist.name).join(', ')}
