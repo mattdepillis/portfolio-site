@@ -24,7 +24,6 @@ const Writing = ({ writingPageData }) => {
     <Fragment>
       {writingPage &&
         <Page
-          headTitle={'Writing'}
           rootPath={'/writing'}
           page={writingPage}
         />

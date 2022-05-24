@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const ProjectsPage = ({ projectsPageData }) => {
+const Projects = ({ projectsPageData }) => {
   const [projectsPage, setProjectsPage] = useState(undefined)
 
   useEffect(() => {
@@ -24,7 +24,6 @@ const ProjectsPage = ({ projectsPageData }) => {
     <Fragment>
       {projectsPage &&
         <Page
-          headTitle={'Projects'}
           rootPath={'/projects'}
           page={projectsPage}
         />
@@ -33,4 +32,4 @@ const ProjectsPage = ({ projectsPageData }) => {
   )
 }
 
-export default ProjectsPage
+export default Projects

@@ -27,7 +27,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const MediaPage = ({
+const Media = ({
   mediaPageData,
   topTracks,
   topArtists,
@@ -53,7 +53,6 @@ const MediaPage = ({
       {mediaPage &&
         <MediaContainer>
           <Page
-            headTitle={'Media'}
             rootPath={'/media'}
             page={mediaPage}
             additionalContent={spotifySection}
@@ -64,4 +63,4 @@ const MediaPage = ({
   )
 }
 
-export default MediaPage
+export default Media

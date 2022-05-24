@@ -22,7 +22,6 @@ const ArtPage = ({ artPageData }) => {
     <Fragment>
       {artPage &&
         <Page
-          headTitle={'Art'}
           rootPath={'/art'}
           page={artPage}
         />

@@ -49,16 +49,10 @@ const ProjectPost = (props) => {
     setProjectPost(props)
   }, [props])
 
-  // TODO: render a spinner instead while the post is loaded properly
   return (
     <Fragment>
-      {!projectPost ?
-        <CenteredContainer>
-          <HashLoader />
-        </CenteredContainer>
-        :
+      {projectPost &&
         <Page
-          headTitle={'dynamic page'}
           parent={'Projects'}
           page={props}
           backArrow

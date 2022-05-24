@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import { useState, Fragment } from 'react'
 import { Card, Grid, Text, Row, Button, Spacer } from "@nextui-org/react"
 
 const SpotifySubsection = ({

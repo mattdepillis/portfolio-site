@@ -11,7 +11,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const ResumePage = ({ resumePageData }) => {
+const Resume = ({ resumePageData }) => {
   const [resumePage, setResumePage] = useState(undefined)
 
   useEffect(() => {
@@ -22,7 +22,6 @@ const ResumePage = ({ resumePageData }) => {
     <Fragment>
       {resumePage &&
         <Page
-          headTitle={'Resume'}
           rootPath={'/resume'}
           page={resumePage}
         />
@@ -31,4 +30,4 @@ const ResumePage = ({ resumePageData }) => {
   )
 }
 
-export default ResumePage
+export default Resume

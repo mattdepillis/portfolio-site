@@ -29,7 +29,6 @@ const Home = ({ homePageData }) => {
         {homePage &&
           <HomeContainer>
             <Page
-              headTitle={'Home'}
               page={homePage}
             />
           </HomeContainer>

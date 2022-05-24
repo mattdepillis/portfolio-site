@@ -49,16 +49,10 @@ const ArtPost = (props) => {
     setArtPost(props)
   }, [props])
 
-  // TODO: render a spinner instead while the post is loaded properly
   return (
     <Fragment>
-      {!artPost ?
-        <CenteredContainer>
-          <HashLoader />
-        </CenteredContainer>
-        :
+      {artPost &&
         <Page
-          headTitle={'dynamic page'}
           parent={'Art'}
           page={props}
           backArrow

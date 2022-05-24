@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import HashLoader from 'react-spinners/HashLoader'
 
 import Page from '../../components/Page'
@@ -49,16 +50,10 @@ const WritingPost = (props) => {
     setWritingPost(props)
   }, [props])
 
-  // TODO: render a spinner instead while the post is loaded properly
   return (
     <Fragment>
-      {!writingPost ?
-        <CenteredContainer>
-          <HashLoader />
-        </CenteredContainer>
-        :
+      {writingPost &&
         <Page
-          headTitle={'dynamic page'}
           parent={'Writing'}
           page={props}
           backArrow
