@@ -6,6 +6,7 @@ import SpotifyCard from './SpotifyCard'
 
 // determines viewport width every time screen resize occurs
 import { useViewportWidth } from '../../lib/useViewportWidth'
+import { setGridXs, setMaxItemsToShow } from './utils'
 
 // renders each spotify section
 const SpotifySubsection = ({
@@ -13,12 +14,6 @@ const SpotifySubsection = ({
   section,
   items
 }) => {
-  // sets the grid to 1, 2, or 3 cols based on screen width
-  const setGridXs = (screenWidth) =>
-    screenWidth > 650 ?
-      4 : screenWidth > 450 ?
-        6 : 12
-
   const width = useViewportWidth()
 
   const [cardHover, setCardHover] = useState(-1)
@@ -26,7 +21,8 @@ const SpotifySubsection = ({
   const [itemsToShow, setItemsToShow] = useState(items.slice(0, 3))
 
   const toggleCards = () => {
-    setItemsToShow(showMore ? items.slice(0, 3) : items)
+    // depending on the width of the screen, will show more or fewer cards on expansion
+    setItemsToShow(showMore ? items.slice(0, 3) : items.slice(0, setMaxItemsToShow(width)))
     setShowMore(!showMore)
   }
 
