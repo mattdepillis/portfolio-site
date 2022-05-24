@@ -1,6 +1,13 @@
 import { Card, Grid, Row, Text } from '@nextui-org/react'
 
-const SpotifyCard = ({ i, obj, hovered, section, onMouseOver, onMouseLeave }) =>
+const SpotifyCard = ({
+  i,
+  obj,
+  hovered,
+  section,
+  onMouseOver,
+  onMouseLeave
+}) =>
   <Card
     key={i}
     className="spotify-card"
@@ -38,7 +45,7 @@ const SpotifyCard = ({ i, obj, hovered, section, onMouseOver, onMouseLeave }) =>
               {obj.name}
             </Text>
           </Row>
-          {(section !== 'topArtists' && window.innerWidth > 600) &&
+          {section !== 'topArtists' &&
             <Row>
               <Text h5 className="card-text" size={12} weight="bold" color="white">
                 {obj.artists.map(artist => artist.name).join(', ')}

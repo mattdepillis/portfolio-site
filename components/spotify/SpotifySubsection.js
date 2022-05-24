@@ -1,19 +1,25 @@
 import { Fragment, useState } from 'react'
 import { Button, Grid, Spacer } from "@nextui-org/react"
+
+// card component for spotify data
 import SpotifyCard from './SpotifyCard'
 
-/*
-  TODO: reengineer the grid section to take a width variable.
-  * if less than 600px for example, structure rows in pairs, not triples.
-  * could even be singles under something like 450px.
-  * at smaller widths, can trim the list to not show more than top 5-10 items.
-*/
+// determines viewport width every time screen resize occurs
+import { useViewportWidth } from '../../lib/useViewportWidth'
+
+// renders each spotify section
 const SpotifySubsection = ({
   title,
   section,
   items
 }) => {
-  const screenWidth = window.innerWidth
+  // sets the grid to 1, 2, or 3 cols based on screen width
+  const setGridXs = (screenWidth) =>
+    screenWidth > 650 ?
+      4 : screenWidth > 450 ?
+        6 : 12
+
+  const width = useViewportWidth()
 
   const [cardHover, setCardHover] = useState(-1)
   const [showMore, setShowMore] = useState(false)
@@ -37,7 +43,7 @@ const SpotifySubsection = ({
 
           return (
             <Fragment>
-              <Grid xs={6}>
+              <Grid xs={setGridXs(width)}>
                 <SpotifyCard
                   i={i}
                   obj={obj}

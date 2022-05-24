@@ -1,7 +1,7 @@
 import { spotifyCategories } from './SpotifyCategories'
 import SpotifySubsection from './SpotifySubsection'
 
-const SpotifySection = ({ data }) => (
+const SpotifySection = ({ data }) =>
   <div className='spotify-data-rendered'>
     <div className='spotify-subsection-wrapper'>
       {spotifyCategories.map(category => (
@@ -13,6 +13,5 @@ const SpotifySection = ({ data }) => (
       ))}
     </div>
   </div>
-)
 
 export default SpotifySection
